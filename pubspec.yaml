@@ -31,7 +31,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-  
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_native_splash: ^2.4.6
@@ -52,6 +53,7 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  generate: true
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -91,6 +93,7 @@ flutter:
           weight: 700
         - asset: assets/fonts/fustat_font/Fustat-ExtraBold.ttf
           weight: 800
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true
