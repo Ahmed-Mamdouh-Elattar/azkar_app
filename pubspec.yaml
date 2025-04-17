@@ -69,27 +69,27 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/cairo_font/Cairo-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Cairo-Medium.ttf
+        - asset: assets/fonts/cairo_font/Cairo-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/cairo_font/Cairo-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/cairo_font/Cairo-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/cairo_font/Cairo-ExtraBold.ttf
           weight: 800
     - family: Fustat
       fonts:
-        - asset: assets/fonts/Fustat-Regular.ttf
+        - asset: assets/fonts/fustat_font/Fustat-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Fustat-Medium.ttf
+        - asset: assets/fonts/fustat_font/Fustat-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Fustat-SemiBold.ttf
+        - asset: assets/fonts/fustat_font/Fustat-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Fustat-Bold.ttf
+        - asset: assets/fonts/fustat_font/Fustat-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Fustat-ExtraBold.ttf
+        - asset: assets/fonts/fustat_font/Fustat-ExtraBold.ttf
           weight: 800
   #
   # For details regarding fonts from package dependencies,
