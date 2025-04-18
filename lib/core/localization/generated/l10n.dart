@@ -54,16 +54,33 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// ` ابدأ رحلتك نحو الطمأنينة`
+  String get onboarding1Title {
+    return Intl.message(
+      ' ابدأ رحلتك نحو الطمأنينة',
+      name: 'onboarding1Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة`
+  String get onboarding1Description {
+    return Intl.message(
+      'اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة',
+      name: 'onboarding1Description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ar'),
-    ];
+    return const <Locale>[Locale.fromSubtags(languageCode: 'ar')];
   }
 
   @override
