@@ -1,11 +1,13 @@
 import 'package:azkar_app/core/config/app_theme.dart';
+import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/pages/onboarding_view.dart';
-import 'package:azkar_app/generated/l10n.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
-  runApp(AzkarApp());
+  runApp(const AzkarApp());
 }
 
 class AzkarApp extends StatelessWidget {
@@ -15,7 +17,7 @@ class AzkarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: const Locale('ar'),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -26,7 +28,7 @@ class AzkarApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: OnboardingView(),
+      home: const OnboardingView(),
     );
   }
 }
