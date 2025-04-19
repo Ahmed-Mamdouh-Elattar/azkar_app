@@ -1,3 +1,4 @@
+import 'package:azkar_app/core/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -19,12 +20,7 @@ class CustomTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: textColor,
-
-          fontSize: 18,
-        ),
+        style: AppTextStyle.styleBold18().copyWith(color: textColor),
       ),
     );
   }
