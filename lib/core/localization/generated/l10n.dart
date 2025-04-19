@@ -74,6 +74,61 @@ class S {
       args: [],
     );
   }
+
+  /// `ذكّر نفسك بما يهم`
+  String get onboarding2Title {
+    return Intl.message(
+      'ذكّر نفسك بما يهم',
+      name: 'onboarding2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `احصل على تنبيهات بالأذكار في أوقاتك المفضلة، وابقَ على اتصال دائم بالسكينة`
+  String get onboarding2Description {
+    return Intl.message(
+      'احصل على تنبيهات بالأذكار في أوقاتك المفضلة، وابقَ على اتصال دائم بالسكينة',
+      name: 'onboarding2Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `صحتك تبدأ من طمأنينتك`
+  String get onboarding3Title {
+    return Intl.message(
+      'صحتك تبدأ من طمأنينتك',
+      name: 'onboarding3Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مارس الذكر بانتظام لتغذية روحك وتعزيز حالتك النفسية والذهنية`
+  String get onboarding3Description {
+    return Intl.message(
+      'مارس الذكر بانتظام لتغذية روحك وتعزيز حالتك النفسية والذهنية',
+      name: 'onboarding3Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التالي`
+  String get next {
+    return Intl.message('التالي', name: 'next', desc: '', args: []);
+  }
+
+  /// `تخطي`
+  String get skip {
+    return Intl.message('تخطي', name: 'skip', desc: '', args: []);
+  }
+
+  /// `ابدأ`
+  String get start {
+    return Intl.message('ابدأ', name: 'start', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

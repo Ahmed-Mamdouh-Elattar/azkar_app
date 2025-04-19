@@ -22,11 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboarding1Description": MessageLookupByLibrary.simpleMessage(
       "اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة",
     ),
     "onboarding1Title": MessageLookupByLibrary.simpleMessage(
       " ابدأ رحلتك نحو الطمأنينة",
     ),
+    "onboarding2Description": MessageLookupByLibrary.simpleMessage(
+      "احصل على تنبيهات بالأذكار في أوقاتك المفضلة، وابقَ على اتصال دائم بالسكينة",
+    ),
+    "onboarding2Title": MessageLookupByLibrary.simpleMessage(
+      "ذكّر نفسك بما يهم",
+    ),
+    "onboarding3Description": MessageLookupByLibrary.simpleMessage(
+      "مارس الذكر بانتظام لتغذية روحك وتعزيز حالتك النفسية والذهنية",
+    ),
+    "onboarding3Title": MessageLookupByLibrary.simpleMessage(
+      "صحتك تبدأ من طمأنينتك",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
   };
 }
