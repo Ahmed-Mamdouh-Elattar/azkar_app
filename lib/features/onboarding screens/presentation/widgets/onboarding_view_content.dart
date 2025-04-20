@@ -1,3 +1,4 @@
+import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/config/app_text_style.dart';
 import 'package:azkar_app/core/helper/is_dark_mode.dart';
 import 'package:azkar_app/features/onboarding%20screens/data/models/onboarding_model.dart';
@@ -22,8 +23,8 @@ class OnboardingViewContent extends StatelessWidget {
           style: AppTextStyle.styleBold22().copyWith(
             color:
                 context.isDarkMode
-                    ? const Color(0xffE8F5E9)
-                    : const Color(0xff1B5E20),
+                    ? AppColor.darkModeTextColor
+                    : AppColor.lightModeTextColor,
           ),
         ),
         const SizedBox(height: 8),
@@ -33,8 +34,8 @@ class OnboardingViewContent extends StatelessWidget {
           style: AppTextStyle.styleMedium20().copyWith(
             color:
                 context.isDarkMode
-                    ? const Color(0xffE8F5E9)
-                    : const Color(0xff1B5E20),
+                    ? AppColor.darkModeTextColor
+                    : AppColor.lightModeTextColor,
           ),
         ),
       ],

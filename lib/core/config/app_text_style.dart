@@ -12,4 +12,8 @@ class AppTextStyle {
   static TextStyle styleMedium20() {
     return const TextStyle(fontSize: 20, fontWeight: FontWeight.w500);
   }
+
+  static TextStyle styleRegular16() {
+    return const TextStyle(fontWeight: FontWeight.w400, fontSize: 16);
+  }
 }

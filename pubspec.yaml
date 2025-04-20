@@ -28,13 +28,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_bloc: ^9.1.0
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.0
+
   flutter_localizations:
     sdk: flutter
+  get_it: ^8.0.3
   lottie: ^3.3.1
+  shared_preferences: ^2.5.3
   smooth_page_indicator: ^1.2.1
 
 dev_dependencies:

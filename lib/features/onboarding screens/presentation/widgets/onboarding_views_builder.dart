@@ -1,5 +1,5 @@
 import 'package:azkar_app/features/onboarding%20screens/data/models/onboarding_model.dart';
-import 'package:azkar_app/features/onboarding%20screens/presentation/managers/cubit/onboarding_last_view_cubit.dart';
+import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_last_view_cubit/onboarding_last_view_cubit.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/widgets/onboarding_view_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

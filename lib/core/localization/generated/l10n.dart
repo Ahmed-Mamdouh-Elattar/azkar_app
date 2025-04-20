@@ -129,6 +129,11 @@ class S {
   String get start {
     return Intl.message('ابدأ', name: 'start', desc: '', args: []);
   }
+
+  /// `مطمئن`
+  String get appName {
+    return Intl.message('مطمئن', name: 'appName', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

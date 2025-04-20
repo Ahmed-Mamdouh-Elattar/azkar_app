@@ -1,9 +1,13 @@
 import 'package:azkar_app/core/assets/assets.dart';
+import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/helper/constants.dart';
 import 'package:azkar_app/core/helper/is_dark_mode.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
+import 'package:azkar_app/core/utils/app_navigation.dart';
+import 'package:azkar_app/features/home/presentation/pages/home_view.dart';
 import 'package:azkar_app/features/onboarding%20screens/data/models/onboarding_model.dart';
-import 'package:azkar_app/features/onboarding%20screens/presentation/managers/cubit/onboarding_last_view_cubit.dart';
+import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_last_view_cubit/onboarding_last_view_cubit.dart';
+import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/widgets/custom_dots_indicator.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/widgets/custom_text_button.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/widgets/onboarding_views_builder.dart';
@@ -89,6 +93,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             : SizedBox(
               height: 50,
               child: CustomTextButton(
+                isSkipButton: true,
                 text: S.of(context).skip,
                 onPressed:
                     () => pageController!.animateToPage(
@@ -98,8 +103,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     ),
                 textColor:
                     context.isDarkMode
-                        ? const Color(0xff81C784)
-                        : const Color(0xff2E7D32),
+                        ? AppColor.darkModeButtonColor
+                        : AppColor.lightModeButtonColor,
               ),
             );
       },
@@ -112,23 +117,43 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
         return CustomTextButton(
           textColor:
               context.isDarkMode
-                  ? const Color(0xff0D1B2A)
+                  ? AppColor.darkModeBackgroundColor
                   : const Color(0xffFFFFFF),
           text: state ? S.of(context).start : S.of(context).next,
           style: ButtonStyle(
             backgroundColor:
                 context.isDarkMode
-                    ? const WidgetStatePropertyAll(Color(0xff81C784))
-                    : const WidgetStatePropertyAll(Color(0xff2E7D32)),
+                    ? const WidgetStatePropertyAll(AppColor.darkModeButtonColor)
+                    : const WidgetStatePropertyAll(
+                      AppColor.lightModeButtonColor,
+                    ),
           ),
           onPressed: () {
-            pageController!.nextPage(
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
+            if (state) {
+              BlocProvider.of<OnboardingStatusCubit>(
+                context,
+              ).saveOnboardingStatus();
+              navigateToHomeView(context);
+            } else {
+              navigateToNextOnboardingView();
+            }
           },
         );
       },
+    );
+  }
+
+  void navigateToHomeView(BuildContext context) {
+    AppNavigation.pushAndRemoveAllWithFadingAnimation(
+      context: context,
+      view: const HomeView(),
+    );
+  }
+
+  void navigateToNextOnboardingView() {
+    pageController!.nextPage(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease,
     );
   }
 }
