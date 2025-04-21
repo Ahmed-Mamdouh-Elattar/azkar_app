@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("مطمئن"),
+    "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboarding1Description": MessageLookupByLibrary.simpleMessage(
       "اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة",
@@ -44,5 +46,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
+    "yourChart": MessageLookupByLibrary.simpleMessage("يومك"),
   };
 }

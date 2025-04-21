@@ -134,6 +134,21 @@ class S {
   String get appName {
     return Intl.message('مطمئن', name: 'appName', desc: '', args: []);
   }
+
+  /// `الرئيسية`
+  String get home {
+    return Intl.message('الرئيسية', name: 'home', desc: '', args: []);
+  }
+
+  /// `المفضلة`
+  String get favorite {
+    return Intl.message('المفضلة', name: 'favorite', desc: '', args: []);
+  }
+
+  /// `يومك`
+  String get yourChart {
+    return Intl.message('يومك', name: 'yourChart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

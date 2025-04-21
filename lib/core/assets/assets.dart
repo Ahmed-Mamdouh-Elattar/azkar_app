@@ -6,6 +6,10 @@ class Assets {
   /// assets/media/animations/bell.json
   static const String mediaAnimationsBell = "assets/media/animations/bell.json";
 
+  /// Assets for mediaAnimationsHomeAnimation
+  /// assets/media/animations/home_animation.json
+  static const String mediaAnimationsHomeAnimation = "assets/media/animations/home_animation.json";
+
   /// Assets for mediaAnimationsSerenity
   /// assets/media/animations/serenity.json
   static const String mediaAnimationsSerenity = "assets/media/animations/serenity.json";

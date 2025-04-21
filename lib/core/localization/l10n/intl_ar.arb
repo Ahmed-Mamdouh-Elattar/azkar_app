@@ -8,5 +8,8 @@
     "next": "التالي",
     "skip": "تخطي",
     "start": "ابدأ",
-    "appName": "مطمئن"
+    "appName": "مطمئن",
+    "home": "الرئيسية",
+    "favorite": "المفضلة",
+    "yourChart": "يومك"
 }
