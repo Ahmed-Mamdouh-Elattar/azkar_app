@@ -1,10 +1,11 @@
+import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/helper/is_dark_mode.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeViewAppBar({super.key});
-
+  const HomeViewAppBar({required this.scaffoldKey, super.key});
+  final GlobalKey<ScaffoldState> scaffoldKey;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -16,18 +17,19 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.bold,
-          color: context.isDarkMode ? Colors.white : Colors.black87,
+          color:
+              context.isDarkMode
+                  ? AppColor.darkModeTextColor
+                  : AppColor.lightModeTextColor,
         ),
       ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.menu),
-          color: context.isDarkMode ? Colors.white : Colors.black87,
-          onPressed: () {
-            // Navigate to settings screen
-          },
-        ),
-      ],
+      leading: IconButton(
+        icon: const Icon(Icons.menu),
+        color: context.isDarkMode ? Colors.white : Colors.black87,
+        onPressed: () {
+          scaffoldKey.currentState!.openDrawer();
+        },
+      ),
     );
   }
 
