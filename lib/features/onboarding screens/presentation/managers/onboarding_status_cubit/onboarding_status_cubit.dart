@@ -2,15 +2,18 @@ import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_sta
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnboardingStatusCubit extends Cubit<bool> {
-  OnboardingStatusCubit(this.onboardingStatusRepository) : super(false);
+  OnboardingStatusCubit({
+    required OnboardingStatusRepository onboardingStatusRepository,
+  }) : _onboardingStatusRepository = onboardingStatusRepository,
+       super(false);
 
-  final OnboardingStatusRepository onboardingStatusRepository;
+  final OnboardingStatusRepository _onboardingStatusRepository;
   Future<void> saveOnboardingStatus() async =>
-      onboardingStatusRepository.saveUserSawOnboarding();
+      _onboardingStatusRepository.saveUserSawOnboarding();
 
   Future<void> getOnboardingStatus() async {
     final onboardingStatus =
-        await onboardingStatusRepository.getUserOnboardingStatus();
+        await _onboardingStatusRepository.getUserOnboardingStatus();
     emit(onboardingStatus);
   }
 }
