@@ -28,19 +28,18 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter_bloc: ^9.1.0
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-
+  flutter_bloc: ^9.1.0
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^2.1.0
   get_it: ^8.0.3
   lottie: ^3.3.1
   shared_preferences: ^2.5.3
   smooth_page_indicator: ^1.2.1
   stylish_bottom_bar: ^1.1.1
- 
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -62,6 +61,7 @@ flutter:
   assets:
     - assets/media/images/
     - assets/media/animations/
+    - assets/media/icons/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
