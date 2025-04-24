@@ -23,9 +23,9 @@ class AzkarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create:
-          (context) =>
-              OnboardingStatusCubit(getIt.get<OnboardingStatusRepository>())
-                ..getOnboardingStatus(),
+          (context) => OnboardingStatusCubit(
+            onboardingStatusRepository: getIt.get<OnboardingStatusRepository>(),
+          )..getOnboardingStatus(),
       child: MaterialApp(
         locale: const Locale('ar'),
         localizationsDelegates: const [
