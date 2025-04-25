@@ -1,10 +1,10 @@
 import 'package:azkar_app/core/assets/assets.dart';
-import 'package:azkar_app/core/config/app_color.dart';
+
 import 'package:azkar_app/core/helper/constants.dart';
-import 'package:azkar_app/core/helper/is_dark_mode.dart';
+
 import 'package:azkar_app/features/home/data/azkar_model.dart';
+import 'package:azkar_app/features/home/presentation/widgets/custom_card_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -69,56 +69,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         itemBuilder: (context, index) {
           return CustomCardItem(azkarModel: azkar[index]);
         },
-      ),
-    );
-  }
-}
-
-class CustomCardItem extends StatelessWidget {
-  const CustomCardItem({required this.azkarModel, super.key});
-  final AzkarModel azkarModel;
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: Card(
-        color:
-            context.isDarkMode
-                ? const Color(0xFF3E4E40)
-                : const Color(0xFFB0BEC5),
-        elevation: 4,
-        shadowColor:
-            context.isDarkMode
-                ? AppColor.lightModeButtonColor
-                : AppColor.darkModeButtonColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            children: [
-              SvgPicture.asset(azkarModel.azkarIcon, height: 38, width: 38),
-              const SizedBox(height: 8),
-              Flexible(
-                child: Text(
-                  azkarModel.azkarName,
-                  maxLines: 3,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    color:
-                        context.isDarkMode
-                            ? AppColor.darkModeTextColor
-                            : AppColor.lightModeTextColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

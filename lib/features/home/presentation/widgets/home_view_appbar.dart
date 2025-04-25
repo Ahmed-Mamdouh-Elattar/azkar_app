@@ -8,6 +8,7 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = context.isDarkMode;
     return AppBar(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 0,
@@ -18,14 +19,14 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontSize: 22,
           fontWeight: FontWeight.bold,
           color:
-              context.isDarkMode
+              isDarkMode
                   ? AppColor.darkModeTextColor
                   : AppColor.lightModeTextColor,
         ),
       ),
       leading: IconButton(
         icon: const Icon(Icons.menu),
-        color: context.isDarkMode ? Colors.white : Colors.black87,
+        color: isDarkMode ? Colors.white : Colors.black87,
         onPressed: () {
           scaffoldKey.currentState!.openDrawer();
         },

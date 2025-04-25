@@ -15,20 +15,17 @@ class CustomDotsIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = context.isDarkMode;
     return SmoothPageIndicator(
       controller: pageController!, // PageController
       count: onboardingViewsLength,
       effect: JumpingDotEffect(
         activeDotColor:
-            context.isDarkMode
-                ? const Color(0xffA5D6A7)
-                : const Color(0xff2E7D32),
+            isDarkMode ? const Color(0xffA5D6A7) : const Color(0xff2E7D32),
         verticalOffset: 15,
         jumpScale: 1.5,
         dotColor:
-            context.isDarkMode
-                ? const Color(0xff375F68)
-                : const Color(0xffA5D6A7),
+            isDarkMode ? const Color(0xff375F68) : const Color(0xffA5D6A7),
       ),
       // your preferred effect
       onDotClicked: (index) {

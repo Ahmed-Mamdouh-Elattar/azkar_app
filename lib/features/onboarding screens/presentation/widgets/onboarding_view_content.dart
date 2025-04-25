@@ -12,6 +12,7 @@ class OnboardingViewContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = context.isDarkMode;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,7 +23,7 @@ class OnboardingViewContent extends StatelessWidget {
           onboardingModel.title,
           style: AppTextStyle.styleBold22().copyWith(
             color:
-                context.isDarkMode
+                isDarkMode
                     ? AppColor.darkModeTextColor
                     : AppColor.lightModeTextColor,
           ),
@@ -33,7 +34,7 @@ class OnboardingViewContent extends StatelessWidget {
           textAlign: TextAlign.center,
           style: AppTextStyle.styleMedium20().copyWith(
             color:
-                context.isDarkMode
+                isDarkMode
                     ? AppColor.darkModeTextColor
                     : AppColor.lightModeTextColor,
           ),

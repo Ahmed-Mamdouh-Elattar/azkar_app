@@ -10,6 +10,7 @@ class StartupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OnboardingStatusCubit, bool>(
+      buildWhen: (previous, current) => previous != current,
       builder: (context, state) {
         return state ? const HomeView() : const OnboardingView();
       },
