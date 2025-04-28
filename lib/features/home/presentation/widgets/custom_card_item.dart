@@ -1,6 +1,6 @@
 import 'package:azkar_app/core/config/app_color.dart';
 
-import 'package:azkar_app/features/home/data/azkar_model.dart';
+import 'package:azkar_app/features/home/data/models/azkar_card_model/azkar_card_model.dart';
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomCardItem extends StatelessWidget {
   const CustomCardItem({required this.azkarModel, super.key});
-  final AzkarModel azkarModel;
+  final AzkarCardModel azkarModel;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeMode>(

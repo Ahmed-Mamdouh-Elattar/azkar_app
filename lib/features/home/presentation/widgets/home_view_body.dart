@@ -2,7 +2,7 @@ import 'package:azkar_app/core/assets/assets.dart';
 
 import 'package:azkar_app/core/helper/constants.dart';
 
-import 'package:azkar_app/features/home/data/azkar_model.dart';
+import 'package:azkar_app/features/home/data/models/azkar_card_model/azkar_card_model.dart';
 import 'package:azkar_app/features/home/presentation/widgets/custom_card_item.dart';
 import 'package:flutter/material.dart';
 
@@ -14,41 +14,56 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  List<AzkarModel> azkar = [
-    AzkarModel(azkarName: "أذكار الصباح", azkarIcon: Assets.mediaIconsSun),
-    AzkarModel(
+  List<AzkarCardModel> azkar = [
+    AzkarCardModel(azkarName: "أذكار الصباح", azkarIcon: Assets.mediaIconsSun),
+    AzkarCardModel(
       azkarName: "أذكار المساء",
       azkarIcon: Assets.mediaIconsMoonNight,
     ),
-    AzkarModel(azkarName: "أذكار الوضوء", azkarIcon: Assets.mediaIconsAblution),
-    AzkarModel(azkarName: "أذكار الصلاة", azkarIcon: Assets.mediaIconsPraying),
-    AzkarModel(
+    AzkarCardModel(
+      azkarName: "أذكار الوضوء",
+      azkarIcon: Assets.mediaIconsAblution,
+    ),
+    AzkarCardModel(
+      azkarName: "أذكار الصلاة",
+      azkarIcon: Assets.mediaIconsPraying,
+    ),
+    AzkarCardModel(
       azkarName: "أذكار بعد الصلاة",
       azkarIcon: Assets.mediaIconsAfterPraying,
     ),
-    AzkarModel(
+    AzkarCardModel(
       azkarName: "أذكار عند سماع الأذان",
       azkarIcon: Assets.mediaIconsPraying,
     ),
-    AzkarModel(azkarName: "أذكار المسجد", azkarIcon: Assets.mediaIconsMosque),
-    AzkarModel(
+    AzkarCardModel(
+      azkarName: "أذكار المسجد",
+      azkarIcon: Assets.mediaIconsMosque,
+    ),
+    AzkarCardModel(
       azkarName: "أذكار قبل النوم",
       azkarIcon: Assets.mediaIconsBeforeSleeping,
     ),
-    AzkarModel(
+    AzkarCardModel(
       azkarName: "أذكار الاستيقاظ من النوم",
       azkarIcon: Assets.mediaIconsAfterSleeping,
     ),
 
-    AzkarModel(azkarName: "أذكار المنزل", azkarIcon: Assets.mediaIconsHome),
+    AzkarCardModel(azkarName: "أذكار المنزل", azkarIcon: Assets.mediaIconsHome),
 
-    AzkarModel(azkarName: "أذكار الخلاء", azkarIcon: Assets.mediaIconsBath),
-    AzkarModel(
+    AzkarCardModel(azkarName: "أذكار الخلاء", azkarIcon: Assets.mediaIconsBath),
+    AzkarCardModel(
       azkarName: "أذكار الطعام والشراب",
       azkarIcon: Assets.mediaIconsFoodAndDrink,
     ),
-    AzkarModel(azkarName: "أذكار السفر", azkarIcon: Assets.mediaIconsTraveling),
-    AzkarModel(azkarName: "أذكار أخرى", azkarIcon: Assets.mediaIconsTasbeeh),
+    AzkarCardModel(
+      azkarName: "أذكار السفر",
+      azkarIcon: Assets.mediaIconsTraveling,
+    ),
+    AzkarCardModel(
+      azkarName: "أذكار أخرى",
+      azkarIcon: Assets.mediaIconsTasbeeh,
+    ),
   ];
 
   @override

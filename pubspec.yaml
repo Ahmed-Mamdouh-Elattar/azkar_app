@@ -41,12 +41,18 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   stylish_bottom_bar: ^1.1.1
   flutter_native_splash: ^2.4.6
+  objectbox: ^4.2.0
+  
+  objectbox_flutter_libs: any
+  
 
 dev_dependencies:
+  build_runner: ^2.4.15
   flutter_lints: ^5.0.0
   
   flutter_test:
     sdk: flutter
+  objectbox_generator: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,6 +69,7 @@ flutter:
     - assets/media/images/
     - assets/media/animations/
     - assets/media/icons/
+    - assets/data/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -111,3 +118,5 @@ flutter_assets:
   output_path: lib/core/assets/
   filename: assets.dart
   field_prefix: null
+objectbox:
+  output_dir: features/home/data/models/azkar_model/

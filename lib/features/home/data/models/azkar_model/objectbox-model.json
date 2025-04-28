@@ -1,0 +1,79 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:4937181344770408443",
+      "lastPropertyId": "3:7356939778745380476",
+      "name": "AzkarModel",
+      "properties": [
+        {
+          "id": "1:3194947875913220169",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4937881345127874973",
+          "name": "category",
+          "type": 9
+        },
+        {
+          "id": "3:7356939778745380476",
+          "name": "totalItems",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:5015638678989491867",
+      "lastPropertyId": "5:1197006214748275325",
+      "name": "ZekerItem",
+      "properties": [
+        {
+          "id": "1:4752654540996137189",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2408729622863818292",
+          "name": "zekr",
+          "type": 9
+        },
+        {
+          "id": "3:5635857355338524188",
+          "name": "repeat",
+          "type": 6
+        },
+        {
+          "id": "4:7189781333668418690",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "5:1197006214748275325",
+          "name": "azkarModelId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:806105752997526168",
+          "relationTarget": "AzkarModel"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:5015638678989491867",
+  "lastIndexId": "1:806105752997526168",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

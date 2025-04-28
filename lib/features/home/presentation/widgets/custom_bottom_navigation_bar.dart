@@ -1,5 +1,4 @@
 import 'package:azkar_app/core/config/app_color.dart';
-import 'package:azkar_app/core/helper/is_dark_mode.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/features/home/presentation/managers/body_cubit/body_cubit.dart';
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
