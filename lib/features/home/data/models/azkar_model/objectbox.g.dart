@@ -23,7 +23,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(1, 4937181344770408443),
     name: 'AzkarModel',
-    lastPropertyId: const obx_int.IdUid(3, 7356939778745380476),
+    lastPropertyId: const obx_int.IdUid(4, 3784603518612009370),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -44,6 +44,12 @@ final _entities = <obx_int.ModelEntity>[
         type: 6,
         flags: 0,
       ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(4, 3784603518612009370),
+        name: 'isCompleted',
+        type: 1,
+        flags: 0,
+      ),
     ],
     relations: <obx_int.ModelRelation>[],
     backlinks: <obx_int.ModelBacklink>[
@@ -57,7 +63,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(2, 5015638678989491867),
     name: 'ZekerItem',
-    lastPropertyId: const obx_int.IdUid(5, 1197006214748275325),
+    lastPropertyId: const obx_int.IdUid(7, 5777290770606448070),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -91,6 +97,18 @@ final _entities = <obx_int.ModelEntity>[
         flags: 520,
         indexId: const obx_int.IdUid(1, 806105752997526168),
         relationTarget: 'AzkarModel',
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(6, 3798931042839607166),
+        name: 'isCompleted',
+        type: 1,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(7, 5777290770606448070),
+        name: 'isFavorite',
+        type: 1,
+        flags: 0,
       ),
     ],
     relations: <obx_int.ModelRelation>[],
@@ -168,10 +186,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
       },
       objectToFB: (AzkarModel object, fb.Builder fbb) {
         final categoryOffset = fbb.writeString(object.category);
-        fbb.startTable(4);
+        fbb.startTable(5);
         fbb.addInt64(0, object.id);
         fbb.addOffset(1, categoryOffset);
         fbb.addInt64(2, object.totalItems);
+        fbb.addBool(3, object.isCompleted);
         fbb.finish(fbb.endTable());
         return object.id;
       },
@@ -187,9 +206,16 @@ obx_int.ModelDefinition getObjectBoxModel() {
           8,
           0,
         );
+        final isCompletedParam = const fb.BoolReader().vTableGet(
+          buffer,
+          rootOffset,
+          10,
+          false,
+        );
         final object = AzkarModel(
           category: categoryParam,
           totalItems: totalItemsParam,
+          isCompleted: isCompletedParam,
         )..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
         obx_int.InternalToManyAccess.setRelInfo<AzkarModel>(
           object.zekerItems,
@@ -214,12 +240,14 @@ obx_int.ModelDefinition getObjectBoxModel() {
       objectToFB: (ZekerItem object, fb.Builder fbb) {
         final zekrOffset = fbb.writeString(object.zekr);
         final descriptionOffset = fbb.writeString(object.description);
-        fbb.startTable(6);
+        fbb.startTable(8);
         fbb.addInt64(0, object.id);
         fbb.addOffset(1, zekrOffset);
         fbb.addInt64(2, object.repeat);
         fbb.addOffset(3, descriptionOffset);
         fbb.addInt64(4, object.azkarModel.targetId);
+        fbb.addBool(5, object.isCompleted);
+        fbb.addBool(6, object.isFavorite);
         fbb.finish(fbb.endTable());
         return object.id;
       },
@@ -238,10 +266,24 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final descriptionParam = const fb.StringReader(
           asciiOptimization: true,
         ).vTableGet(buffer, rootOffset, 10, '');
+        final isCompletedParam = const fb.BoolReader().vTableGet(
+          buffer,
+          rootOffset,
+          14,
+          false,
+        );
+        final isFavoriteParam = const fb.BoolReader().vTableGet(
+          buffer,
+          rootOffset,
+          16,
+          false,
+        );
         final object = ZekerItem(
           zekr: zekrParam,
           repeat: repeatParam,
           description: descriptionParam,
+          isCompleted: isCompletedParam,
+          isFavorite: isFavoriteParam,
         )..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
         object.azkarModel.targetId = const fb.Int64Reader().vTableGet(
           buffer,
@@ -275,6 +317,11 @@ class AzkarModel_ {
     _entities[0].properties[2],
   );
 
+  /// See [AzkarModel.isCompleted].
+  static final isCompleted = obx.QueryBooleanProperty<AzkarModel>(
+    _entities[0].properties[3],
+  );
+
   /// see [AzkarModel.zekerItems]
   static final zekerItems = obx.QueryBacklinkToMany<ZekerItem, AzkarModel>(
     ZekerItem_.azkarModel,
@@ -306,5 +353,15 @@ class ZekerItem_ {
   /// See [ZekerItem.azkarModel].
   static final azkarModel = obx.QueryRelationToOne<ZekerItem, AzkarModel>(
     _entities[1].properties[4],
+  );
+
+  /// See [ZekerItem.isCompleted].
+  static final isCompleted = obx.QueryBooleanProperty<ZekerItem>(
+    _entities[1].properties[5],
+  );
+
+  /// See [ZekerItem.isFavorite].
+  static final isFavorite = obx.QueryBooleanProperty<ZekerItem>(
+    _entities[1].properties[6],
   );
 }

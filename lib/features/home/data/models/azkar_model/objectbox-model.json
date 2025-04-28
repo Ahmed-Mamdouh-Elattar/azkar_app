@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:4937181344770408443",
-      "lastPropertyId": "3:7356939778745380476",
+      "lastPropertyId": "4:3784603518612009370",
       "name": "AzkarModel",
       "properties": [
         {
@@ -23,13 +23,18 @@
           "id": "3:7356939778745380476",
           "name": "totalItems",
           "type": 6
+        },
+        {
+          "id": "4:3784603518612009370",
+          "name": "isCompleted",
+          "type": 1
         }
       ],
       "relations": []
     },
     {
       "id": "2:5015638678989491867",
-      "lastPropertyId": "5:1197006214748275325",
+      "lastPropertyId": "7:5777290770606448070",
       "name": "ZekerItem",
       "properties": [
         {
@@ -60,6 +65,16 @@
           "flags": 520,
           "indexId": "1:806105752997526168",
           "relationTarget": "AzkarModel"
+        },
+        {
+          "id": "6:3798931042839607166",
+          "name": "isCompleted",
+          "type": 1
+        },
+        {
+          "id": "7:5777290770606448070",
+          "name": "isFavorite",
+          "type": 1
         }
       ],
       "relations": []

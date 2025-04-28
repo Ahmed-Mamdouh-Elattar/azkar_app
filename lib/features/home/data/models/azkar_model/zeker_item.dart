@@ -7,12 +7,17 @@ class ZekerItem {
   int id = 0;
   final String zekr;
   final int repeat;
+
   final String description;
   final azkarModel = ToOne<AzkarModel>();
+  bool isCompleted;
+  bool isFavorite;
   ZekerItem({
     required this.zekr,
     required this.repeat,
     required this.description,
+    this.isCompleted = false,
+    this.isFavorite = false,
   });
 
   factory ZekerItem.fromJson(Map<String, dynamic> json) => ZekerItem(

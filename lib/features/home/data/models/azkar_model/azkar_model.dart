@@ -7,10 +7,15 @@ class AzkarModel {
   int id = 0;
   final String category;
   final int totalItems;
+  bool isCompleted;
   @Backlink()
   final zekerItems = ToMany<ZekerItem>();
 
-  AzkarModel({required this.category, required this.totalItems});
+  AzkarModel({
+    required this.category,
+    required this.totalItems,
+    this.isCompleted = false,
+  });
 
   factory AzkarModel.fromJson(Map<String, dynamic> json) {
     final azkarModel = AzkarModel(
