@@ -1,13 +1,13 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:azkar_app/core/helper/constants.dart';
+import 'package:azkar_app/core/services/shared_preferences_service.dart';
 
 class OnboardingStatusRepository {
   Future<void> saveUserSawOnboarding() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('onboardingStatus', true);
+    await SharedPreferencesService.setBool(key: kOnboardingStatus, value: true);
   }
 
   Future<bool> getUserOnboardingStatus() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('onboardingStatus') ?? false;
+    return await SharedPreferencesService.getBool(key: kOnboardingStatus) ??
+        false;
   }
 }
