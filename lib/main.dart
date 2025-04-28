@@ -1,6 +1,7 @@
 import 'package:azkar_app/core/config/app_theme.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/presentation/pages/startup_view.dart';
+import 'package:azkar_app/core/services/objectbox_service.dart';
 import 'package:azkar_app/core/services/service_locator.dart';
 import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_status_repository.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
@@ -18,16 +19,44 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupServiceLocator();
+  await ObjectBoxService().init();
   ThemeCubit themeCubit = ThemeCubit(getIt.get<ThemeRepo>());
   await themeCubit.getTheme();
+
   FlutterNativeSplash.remove();
 
   runApp(AzkarApp(themeCubit: themeCubit));
 }
 
-class AzkarApp extends StatelessWidget {
+class AzkarApp extends StatefulWidget {
   const AzkarApp({required this.themeCubit, super.key});
   final ThemeCubit themeCubit;
+
+  @override
+  State<AzkarApp> createState() => _AzkarAppState();
+}
+
+class _AzkarAppState extends State<AzkarApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    ObjectBoxService().close();
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.detached) {
+      ObjectBoxService().close();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -39,27 +68,36 @@ class AzkarApp extends StatelessWidget {
                     getIt.get<OnboardingStatusRepository>(),
               )..getOnboardingStatus(),
         ),
-        BlocProvider.value(value: themeCubit),
+        BlocProvider.value(value: widget.themeCubit),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeMode>(
-        builder: (context, mode) {
-          return MaterialApp(
-            locale: const Locale('ar'),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            darkTheme: AppTheme.darkTheme,
-            theme: AppTheme.lightTheme,
-            themeMode: mode,
-            debugShowCheckedModeBanner: false,
-            home: const StartupView(),
-          );
-        },
-      ),
+      child: const AzkarAppMaterial(),
+    );
+  }
+}
+
+class AzkarAppMaterial extends StatelessWidget {
+  const AzkarAppMaterial({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, mode) {
+        return MaterialApp(
+          locale: const Locale('ar'),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          darkTheme: AppTheme.darkTheme,
+          theme: AppTheme.lightTheme,
+          themeMode: mode,
+          debugShowCheckedModeBanner: false,
+          home: const StartupView(),
+        );
+      },
     );
   }
 }
