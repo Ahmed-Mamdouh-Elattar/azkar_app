@@ -1,5 +1,6 @@
 import 'package:azkar_app/features/theme/data/repositories/theme_repo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeCubit extends Cubit<ThemeMode> {
@@ -14,6 +15,11 @@ class ThemeCubit extends Cubit<ThemeMode> {
     final isDarkMode = await _themeRepo.getTheme();
     if (isDarkMode != null) {
       emit(isDarkMode ? ThemeMode.dark : ThemeMode.light);
+    } else {
+      SchedulerBinding.instance.platformDispatcher.platformBrightness ==
+              Brightness.dark
+          ? emit(ThemeMode.dark)
+          : emit(ThemeMode.light);
     }
   }
 }
