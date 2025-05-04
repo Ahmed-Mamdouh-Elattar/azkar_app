@@ -1,11 +1,13 @@
 import 'package:azkar_app/core/config/app_theme.dart';
+import 'package:azkar_app/core/helper/save_azkar_list_and_close_cubit.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/presentation/pages/startup_view.dart';
 import 'package:azkar_app/core/services/objectbox_service.dart';
 import 'package:azkar_app/core/services/service_locator.dart';
+
 import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_status_repository.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
-import 'package:azkar_app/features/theme/data/repositories/theme_repo.dart';
+
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
 
 import 'package:flutter/material.dart';
@@ -20,17 +22,15 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupServiceLocator();
   await ObjectBoxService().init();
-  ThemeCubit themeCubit = ThemeCubit(getIt.get<ThemeRepo>());
-  await themeCubit.getTheme();
-
+  await getIt.get<ThemeCubit>().getTheme();
+  await saveAzkarListAndCloseCubit();
   FlutterNativeSplash.remove();
 
-  runApp(AzkarApp(themeCubit: themeCubit));
+  runApp(const AzkarApp());
 }
 
 class AzkarApp extends StatefulWidget {
-  const AzkarApp({required this.themeCubit, super.key});
-  final ThemeCubit themeCubit;
+  const AzkarApp({super.key});
 
   @override
   State<AzkarApp> createState() => _AzkarAppState();
@@ -68,7 +68,7 @@ class _AzkarAppState extends State<AzkarApp> with WidgetsBindingObserver {
                     getIt.get<OnboardingStatusRepository>(),
               )..getOnboardingStatus(),
         ),
-        BlocProvider.value(value: widget.themeCubit),
+        BlocProvider.value(value: getIt.get<ThemeCubit>()),
       ],
       child: const AzkarAppMaterial(),
     );
