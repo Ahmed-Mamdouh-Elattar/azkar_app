@@ -93,18 +93,20 @@ flutter:
           weight: 700
         - asset: assets/fonts/cairo_font/Cairo-ExtraBold.ttf
           weight: 800
-    - family: Fustat
+    - family: Lateef
       fonts:
-        - asset: assets/fonts/fustat_font/Fustat-Regular.ttf
+        - asset: assets/fonts/lateef_font/Lateef-Regular.ttf
           weight: 400
-        - asset: assets/fonts/fustat_font/Fustat-Medium.ttf
+        - asset: assets/fonts/lateef_font/Lateef-Medium.ttf
           weight: 500
-        - asset: assets/fonts/fustat_font/Fustat-SemiBold.ttf
+        - asset: assets/fonts/lateef_font/Lateef-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/fustat_font/Fustat-Bold.ttf
+        - asset: assets/fonts/lateef_font/Lateef-Bold.ttf
           weight: 700
-        - asset: assets/fonts/fustat_font/Fustat-ExtraBold.ttf
-          weight: 800
+        - asset: assets/fonts/lateef_font/Lateef-ExtraBold.ttf
+          weight: 800   
+    
+                 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 flutter_intl:
