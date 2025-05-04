@@ -1,8 +1,10 @@
 import 'package:azkar_app/core/assets/assets.dart';
 
 import 'package:azkar_app/core/helper/constants.dart';
+import 'package:azkar_app/core/utils/app_navigation.dart';
 
 import 'package:azkar_app/features/home/data/models/azkar_card_model/azkar_card_model.dart';
+import 'package:azkar_app/features/home/presentation/pages/azkar_view.dart';
 import 'package:azkar_app/features/home/presentation/widgets/custom_card_item.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +84,15 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (context, index) {
-          return CustomCardItem(azkarModel: azkar[index]);
+          return GestureDetector(
+            onTap: () {
+              AppNavigation.pushWithSlidingAnimation(
+                context: context,
+                view: const AzkarView(),
+              );
+            },
+            child: CustomCardItem(azkarModel: azkar[index]),
+          );
         },
       ),
     );
