@@ -14,38 +14,38 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import '../../../../../features/home/data/models/azkar_model/azkar_model.dart';
-import '../../../../../features/home/data/models/azkar_model/zeker_item.dart';
+import '../../../core/models/azkar_model/azkar_model.dart';
+import '../../../core/models/azkar_model/zeker_item.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
-    id: const obx_int.IdUid(1, 4937181344770408443),
+    id: const obx_int.IdUid(1, 3215538926283714478),
     name: 'AzkarModel',
-    lastPropertyId: const obx_int.IdUid(4, 3784603518612009370),
+    lastPropertyId: const obx_int.IdUid(4, 6079713178193630857),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(1, 3194947875913220169),
+        id: const obx_int.IdUid(1, 8953986239455389081),
         name: 'id',
         type: 6,
         flags: 1,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(2, 4937881345127874973),
+        id: const obx_int.IdUid(2, 4671472136145806724),
         name: 'category',
         type: 9,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(3, 7356939778745380476),
+        id: const obx_int.IdUid(3, 381191926059898297),
         name: 'totalItems',
         type: 6,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(4, 3784603518612009370),
+        id: const obx_int.IdUid(4, 6079713178193630857),
         name: 'isCompleted',
         type: 1,
         flags: 0,
@@ -61,51 +61,51 @@ final _entities = <obx_int.ModelEntity>[
     ],
   ),
   obx_int.ModelEntity(
-    id: const obx_int.IdUid(2, 5015638678989491867),
+    id: const obx_int.IdUid(2, 8184766316399817486),
     name: 'ZekerItem',
-    lastPropertyId: const obx_int.IdUid(7, 5777290770606448070),
+    lastPropertyId: const obx_int.IdUid(7, 7564363310133324530),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(1, 4752654540996137189),
+        id: const obx_int.IdUid(1, 1016344080835290070),
         name: 'id',
         type: 6,
         flags: 1,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(2, 2408729622863818292),
+        id: const obx_int.IdUid(2, 2942210231328135556),
         name: 'zekr',
         type: 9,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(3, 5635857355338524188),
+        id: const obx_int.IdUid(3, 2483858515993152197),
         name: 'repeat',
         type: 6,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(4, 7189781333668418690),
+        id: const obx_int.IdUid(4, 4464482968116539201),
         name: 'description',
         type: 9,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(5, 1197006214748275325),
+        id: const obx_int.IdUid(5, 3554887493667881668),
         name: 'azkarModelId',
         type: 11,
         flags: 520,
-        indexId: const obx_int.IdUid(1, 806105752997526168),
+        indexId: const obx_int.IdUid(1, 8114929475802047649),
         relationTarget: 'AzkarModel',
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(6, 3798931042839607166),
+        id: const obx_int.IdUid(6, 3970445304492665490),
         name: 'isCompleted',
         type: 1,
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(7, 5777290770606448070),
+        id: const obx_int.IdUid(7, 7564363310133324530),
         name: 'isFavorite',
         type: 1,
         flags: 0,
@@ -154,8 +154,8 @@ Future<obx.Store> openStore({
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
     entities: _entities,
-    lastEntityId: const obx_int.IdUid(2, 5015638678989491867),
-    lastIndexId: const obx_int.IdUid(1, 806105752997526168),
+    lastEntityId: const obx_int.IdUid(2, 8184766316399817486),
+    lastIndexId: const obx_int.IdUid(1, 8114929475802047649),
     lastRelationId: const obx_int.IdUid(0, 0),
     lastSequenceId: const obx_int.IdUid(0, 0),
     retiredEntityUids: const [],

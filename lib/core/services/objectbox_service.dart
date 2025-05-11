@@ -1,6 +1,6 @@
-import 'package:azkar_app/features/home/data/models/azkar_model/azkar_model.dart';
-import 'package:azkar_app/features/home/data/models/azkar_model/objectbox.g.dart';
-import 'package:azkar_app/features/home/data/models/azkar_model/zeker_item.dart';
+import 'package:azkar_app/core/models/azkar_model/azkar_model.dart';
+import 'package:azkar_app/core/models/azkar_model/objectbox.g.dart';
+import 'package:azkar_app/core/models/azkar_model/zeker_item.dart';
 
 class ObjectBoxService {
   static final ObjectBoxService _instance = ObjectBoxService._internal();

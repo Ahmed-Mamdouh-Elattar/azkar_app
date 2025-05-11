@@ -1,4 +1,4 @@
-import 'package:azkar_app/features/home/data/models/azkar_model/azkar_model.dart';
+import 'package:azkar_app/core/models/azkar_model/azkar_model.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
