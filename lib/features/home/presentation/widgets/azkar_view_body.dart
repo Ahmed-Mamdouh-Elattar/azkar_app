@@ -1,8 +1,8 @@
 import 'package:azkar_app/core/helper/constants.dart';
+import 'package:azkar_app/features/home/presentation/widgets/azkar_view_body_content_builder.dart';
 
-import 'package:azkar_app/features/home/presentation/widgets/counter_button.dart';
 import 'package:azkar_app/features/home/presentation/widgets/custom_linear_progress_indicator.dart';
-import 'package:azkar_app/features/home/presentation/widgets/custom_zeker_card.dart';
+
 import 'package:flutter/material.dart';
 
 class AzkarViewBody extends StatelessWidget {
@@ -10,18 +10,24 @@ class AzkarViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(kViewPadding),
-      child: Column(
-        children: [
-          CustomLinearProgressIndicator(),
-          Spacer(),
-          CustomZekerCard(),
+    return Padding(
+      padding: const EdgeInsets.all(kViewPadding),
+      child: LayoutBuilder(
+        builder: (context, snapshot) {
+          return Column(
+            children: [
+              SizedBox(
+                height: snapshot.maxHeight * 0.08,
+                child: const CustomLinearProgressIndicator(),
+              ),
 
-          Spacer(),
-          CounterButton(),
-          Spacer(),
-        ],
+              SizedBox(
+                height: snapshot.maxHeight * 0.92,
+                child: const AzkarViewBodyContentBuilder(),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

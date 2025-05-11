@@ -88,7 +88,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             onTap: () {
               AppNavigation.pushWithSlidingAnimation(
                 context: context,
-                view: const AzkarView(),
+                view: AzkarView(azkarCategory: azkar[index].azkarName),
               );
             },
             child: CustomCardItem(azkarModel: azkar[index]),
