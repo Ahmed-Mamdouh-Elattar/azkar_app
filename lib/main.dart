@@ -9,6 +9,7 @@ import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_sta
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
 
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
+import 'package:azkar_app/simple_bloc_observer.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,9 @@ void main() async {
   await ObjectBoxService().init();
   await getIt.get<ThemeCubit>().getTheme();
   await saveAzkarListAndCloseCubit();
+
+  Bloc.observer = SimpleBlocObserver();
+
   FlutterNativeSplash.remove();
 
   runApp(const AzkarApp());
