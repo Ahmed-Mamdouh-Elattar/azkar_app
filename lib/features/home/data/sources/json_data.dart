@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:azkar_app/core/helper/constants.dart';
-import 'package:azkar_app/features/home/data/models/azkar_model/azkar_model.dart';
+import 'package:azkar_app/core/models/azkar_model/azkar_model.dart';
 import 'package:flutter/services.dart';
 
 abstract class JsonData {

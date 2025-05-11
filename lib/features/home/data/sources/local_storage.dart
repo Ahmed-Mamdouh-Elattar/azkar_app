@@ -1,14 +1,14 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
 import 'package:azkar_app/core/helper/constants.dart';
+import 'package:azkar_app/core/models/azkar_model/azkar_model.dart';
+import 'package:azkar_app/core/models/azkar_model/objectbox.g.dart';
 import 'package:azkar_app/core/services/objectbox_service.dart';
+
 import 'package:azkar_app/core/services/shared_preferences_service.dart';
-import 'package:azkar_app/features/home/data/models/azkar_model/azkar_model.dart';
 import 'package:azkar_app/features/home/data/sources/json_data.dart';
 
 abstract class LocalStorage {
   Future<void> saveAzkarList();
+  AzkarModel getAzkarCategory({required String category});
 }
 
 class LocalStorageImpl implements LocalStorage {
@@ -21,11 +21,27 @@ class LocalStorageImpl implements LocalStorage {
     if (!isDataFetched) {
       ObjectBoxService objectBoxService = ObjectBoxService();
       List<AzkarModel> azkarList = await jsonData.getAzkarObjectsFromJsonData();
-      log("length of azkarList : ${azkarList[0].category}");
+
       for (var azkar in azkarList) {
         objectBoxService.azkarBox.put(azkar);
       }
       SharedPreferencesService.setBool(key: kIsDataFetched, value: true);
+    }
+  }
+
+  @override
+  AzkarModel getAzkarCategory({required String category}) {
+    try {
+      ObjectBoxService objectBoxService = ObjectBoxService();
+      final query =
+          objectBoxService.azkarBox
+              .query(AzkarModel_.category.equals(category))
+              .build();
+      AzkarModel azkarList = query.find().first;
+      query.close();
+      return azkarList;
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }
