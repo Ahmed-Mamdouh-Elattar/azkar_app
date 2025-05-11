@@ -1,25 +1,26 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for mediaAnimationsBell
   /// assets/media/animations/bell.json
   static const String mediaAnimationsBell = "assets/media/animations/bell.json";
 
+  /// Assets for mediaAnimationsFlowerHeart
+  /// assets/media/animations/flower_heart.json
+  static const String mediaAnimationsFlowerHeart = "assets/media/animations/flower_heart.json";
+
   /// Assets for mediaAnimationsHomeAnimation
   /// assets/media/animations/home_animation.json
-  static const String mediaAnimationsHomeAnimation =
-      "assets/media/animations/home_animation.json";
+  static const String mediaAnimationsHomeAnimation = "assets/media/animations/home_animation.json";
 
   /// Assets for mediaAnimationsSerenity
   /// assets/media/animations/serenity.json
-  static const String mediaAnimationsSerenity =
-      "assets/media/animations/serenity.json";
+  static const String mediaAnimationsSerenity = "assets/media/animations/serenity.json";
 
   /// Assets for mediaAnimationsWelcome
   /// assets/media/animations/welcome.json
-  static const String mediaAnimationsWelcome =
-      "assets/media/animations/welcome.json";
+  static const String mediaAnimationsWelcome = "assets/media/animations/welcome.json";
 
   /// Assets for mediaIconsAblution
   /// assets/media/icons/ablution.svg
@@ -27,13 +28,11 @@ class Assets {
 
   /// Assets for mediaIconsAfterPraying
   /// assets/media/icons/after_praying.svg
-  static const String mediaIconsAfterPraying =
-      "assets/media/icons/after_praying.svg";
+  static const String mediaIconsAfterPraying = "assets/media/icons/after_praying.svg";
 
   /// Assets for mediaIconsAfterSleeping
   /// assets/media/icons/after_sleeping.svg
-  static const String mediaIconsAfterSleeping =
-      "assets/media/icons/after_sleeping.svg";
+  static const String mediaIconsAfterSleeping = "assets/media/icons/after_sleeping.svg";
 
   /// Assets for mediaIconsAzan
   /// assets/media/icons/azan.svg
@@ -45,13 +44,11 @@ class Assets {
 
   /// Assets for mediaIconsBeforeSleeping
   /// assets/media/icons/before_sleeping.svg
-  static const String mediaIconsBeforeSleeping =
-      "assets/media/icons/before_sleeping.svg";
+  static const String mediaIconsBeforeSleeping = "assets/media/icons/before_sleeping.svg";
 
   /// Assets for mediaIconsFoodAndDrink
   /// assets/media/icons/food-and-drink.svg
-  static const String mediaIconsFoodAndDrink =
-      "assets/media/icons/food-and-drink.svg";
+  static const String mediaIconsFoodAndDrink = "assets/media/icons/food-and-drink.svg";
 
   /// Assets for mediaIconsHome
   /// assets/media/icons/home.svg
@@ -87,11 +84,10 @@ class Assets {
 
   /// Assets for mediaImagesSplashLogo
   /// assets/media/images/splash_logo.png
-  static const String mediaImagesSplashLogo =
-      "assets/media/images/splash_logo.png";
+  static const String mediaImagesSplashLogo = "assets/media/images/splash_logo.png";
 
   /// Assets for mediaImagesSplashLogo2
   /// assets/media/images/splash_logo_2.png
-  static const String mediaImagesSplashLogo2 =
-      "assets/media/images/splash_logo_2.png";
+  static const String mediaImagesSplashLogo2 = "assets/media/images/splash_logo_2.png";
 }
+
