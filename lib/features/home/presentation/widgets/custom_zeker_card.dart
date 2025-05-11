@@ -1,11 +1,44 @@
 import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/config/app_text_style.dart';
 import 'package:azkar_app/core/helper/is_dark_mode.dart';
+import 'package:azkar_app/features/home/presentation/managers/azkar_cubit/azkar_cubit.dart';
+import 'package:azkar_app/features/home/presentation/widgets/counter_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class CustomZekerCardBuilder extends StatelessWidget {
+  const CustomZekerCardBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AzkarCubit, AzkarState>(
+      buildWhen: (previous, current) {
+        if (current is AzkarSuccess) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      builder: (context, state) {
+        bool isAzkarSuccess = state is AzkarSuccess;
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 500),
+          transitionBuilder:
+              (child, animation) =>
+                  FadeTransition(opacity: animation, child: child),
+          child: CustomZekerCard(
+            state: isAzkarSuccess ? state : null,
+            key: isAzkarSuccess ? ValueKey(state.index) : null,
+          ),
+        );
+      },
+    );
+  }
+}
 
 class CustomZekerCard extends StatelessWidget {
-  const CustomZekerCard({super.key});
-
+  const CustomZekerCard({super.key, this.state});
+  final AzkarSuccess? state;
   @override
   Widget build(BuildContext context) {
     final bool isDarkMode = context.isDarkMode;
@@ -29,6 +62,8 @@ class CustomZekerCard extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             textAlign: TextAlign.center,
@@ -36,7 +71,7 @@ class CustomZekerCard extends StatelessWidget {
               fontFamily: "Lateef",
               color: isDarkMode ? AppColor.darkModeTextColor : Colors.black,
             ),
-            "﴿ ءَامَنَ ٱلرَّسُولُ بِمَآ أُنزِلَ إِلَيۡهِ مِن رَّبِّهِۦ وَٱلۡمُؤۡمِنُونَۚ كُلٌّ ءَامَنَ بِٱللَّهِ وَمَلَٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ لَا نُفَرِّقُ بَيۡنَ أَحَدٖ مِّن رُّسُلِهِۦۚ وَقَالُواْ سَمِعۡنَا وَأَطَعۡنَاۖ غُفۡرَانَكَ رَبَّنَا وَإِلَيۡكَ ٱلۡمَصِيرُ (*) لَا يُكَلِّفُ ٱللَّهُ نَفۡسًا إِلَّا وُسۡعَهَاۚ لَهَا مَا كَسَبَتۡ وَعَلَيۡهَا مَا ٱكۡتَسَبَتۡۗ رَبَّنَا لَا تُؤَاخِذۡنَآ إِن نَّسِينَآ أَوۡ أَخۡطَأۡنَاۚ رَبَّنَا وَلَا تَحۡمِلۡ عَلَيۡنَآ إِصۡرٗا كَمَا حَمَلۡتَهُۥ عَلَى ٱلَّذِينَ مِن قَبۡلِنَاۚ رَبَّنَا وَلَا تُحَمِّلۡنَا مَا لَا طَاقَةَ لَنَا بِهِۦۖ وَٱعۡفُ عَنَّا وَٱغۡفِرۡ لَنَا وَٱرۡحَمۡنَآۚ أَنتَ مَوۡلَىٰنَا فَٱنصُرۡنَا عَلَى ٱلۡقَوۡمِ ٱلۡكَٰفِرِينَ ﴾",
+            state?.zeker?.zekr ?? "",
           ),
           Divider(
             color:
@@ -69,7 +104,7 @@ class FavoriteAndShareButton extends StatelessWidget {
           icon: const Icon(Icons.share_outlined, size: 34),
         ),
         const Spacer(),
-        const Text("0/3"),
+        const CounterText(),
       ],
     );
   }
