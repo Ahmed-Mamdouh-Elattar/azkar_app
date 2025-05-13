@@ -76,11 +76,11 @@ as int,
 /// @nodoc
 
 
-class Home implements BodyState {
-  const Home({required this.index});
+class Home extends BodyState {
+  const Home({required final  int index}): super._(index: index);
   
 
-@override final  int index;
+
 
 /// Create a copy of BodyState
 /// with the given fields replaced by the non-null parameter values.
@@ -142,11 +142,11 @@ as int,
 /// @nodoc
 
 
-class Favorites implements BodyState {
-  const Favorites({required this.index});
+class Favorites extends BodyState {
+  const Favorites({required final  int index}): super._(index: index);
   
 
-@override final  int index;
+
 
 /// Create a copy of BodyState
 /// with the given fields replaced by the non-null parameter values.
@@ -208,11 +208,11 @@ as int,
 /// @nodoc
 
 
-class Chart implements BodyState {
-  const Chart({required this.index});
+class Chart extends BodyState {
+  const Chart({required final  int index}): super._(index: index);
   
 
-@override final  int index;
+
 
 /// Create a copy of BodyState
 /// with the given fields replaced by the non-null parameter values.
