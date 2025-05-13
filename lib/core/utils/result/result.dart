@@ -3,6 +3,6 @@ part 'result.freezed.dart';
 
 @freezed
 sealed class Result<T> with _$Result<T> {
-  const factory Result.success(T data) = Success<T>;
-  const factory Result.failure(String message) = Failure<T>;
+  const factory Result.success(T data) = ResultSuccess<T>;
+  const factory Result.failure(String message) = ResultFailure<T>;
 }

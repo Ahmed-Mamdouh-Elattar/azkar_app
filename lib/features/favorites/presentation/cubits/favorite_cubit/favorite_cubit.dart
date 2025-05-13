@@ -1,8 +1,10 @@
 import 'package:azkar_app/core/models/azkar_model/zeker_item.dart';
 import 'package:azkar_app/core/utils/result/result.dart';
 import 'package:azkar_app/features/favorites/data/repositories/favorites_repo.dart';
-import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'favorite_state.dart';
+part 'favorite_cubit.freezed.dart';
 
 class FavoriteCubit extends Cubit<FavoriteState> {
   FavoriteCubit(this._favoritesRepository)
@@ -15,10 +17,12 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     final result = _favoritesRepository.getFavorites();
 
     switch (result) {
-      case Success(:final data):
-        emit(FavoriteState.success(zekerFavorites: data));
+      case ResultSuccess(:final data):
+        data.isEmpty
+            ? emit(const FavoriteState.empty())
+            : emit(FavoriteState.success(zekerFavorites: data));
         break;
-      case Failure(:final message):
+      case ResultFailure(:final message):
         emit(FavoriteState.failure(message: message));
         break;
     }
@@ -29,17 +33,20 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     switch (zekerItem.isFavorite) {
       case true:
         newZekerItem = _favoritesRepository.deleteFromFavorites(zekerItem);
-        emit(FavoriteState.toggle(isFavorite: newZekerItem.isFavorite));
+        emit(FavoriteState.toggle(newzekerItem: newZekerItem));
         break;
       case false:
         newZekerItem = _favoritesRepository.addToFavorites(zekerItem);
-        emit(FavoriteState.toggle(isFavorite: newZekerItem.isFavorite));
+        emit(FavoriteState.toggle(newzekerItem: newZekerItem));
         break;
     }
   }
 
   void deleteFromFavorites({required ZekerItem zekerItem}) {
     _favoritesRepository.deleteFromFavorites(zekerItem);
-    getZekerFavorites();
+  }
+
+  void intializeFavoriteButton() {
+    emit(const FavoriteState.initial());
   }
 }

@@ -6,7 +6,7 @@ final class AzkarInitial extends AzkarState {}
 
 final class AzkarSuccess extends AzkarState {
   final int? index;
-  final ZekerItem? zeker;
+  final ZekerItem zeker;
   final int? azkarListLength;
 
   AzkarSuccess({

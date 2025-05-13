@@ -1,5 +1,5 @@
 import 'package:azkar_app/features/home/presentation/widgets/counter_button.dart';
-import 'package:azkar_app/features/home/presentation/widgets/custom_zeker_card.dart';
+import 'package:azkar_app/features/home/presentation/widgets/custom_zeker_card_builder.dart';
 import 'package:flutter/material.dart';
 
 class AzkarViewBodyContent extends StatelessWidget {

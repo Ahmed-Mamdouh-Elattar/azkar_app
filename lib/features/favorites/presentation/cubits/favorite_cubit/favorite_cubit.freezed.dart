@@ -4,7 +4,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'favorite_state.dart';
+part of 'favorite_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -45,8 +45,8 @@ $FavoriteStateCopyWith(FavoriteState _, $Res Function(FavoriteState) __);
 /// @nodoc
 
 
-class _Initial implements FavoriteState {
-  const _Initial();
+class Initial implements FavoriteState {
+  const Initial();
   
 
 
@@ -56,7 +56,7 @@ class _Initial implements FavoriteState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
 }
 
 
@@ -77,8 +77,8 @@ String toString() {
 /// @nodoc
 
 
-class _Loading implements FavoriteState {
-  const _Loading();
+class Loading implements FavoriteState {
+  const Loading();
   
 
 
@@ -88,7 +88,7 @@ class _Loading implements FavoriteState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading);
 }
 
 
@@ -109,8 +109,8 @@ String toString() {
 /// @nodoc
 
 
-class _Failure implements FavoriteState {
-  const _Failure({required this.message});
+class Failure implements FavoriteState {
+  const Failure({required this.message});
   
 
  final  String message;
@@ -119,13 +119,13 @@ class _Failure implements FavoriteState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$FailureCopyWith<_Failure> get copyWith => __$FailureCopyWithImpl<_Failure>(this, _$identity);
+$FailureCopyWith<Failure> get copyWith => _$FailureCopyWithImpl<Failure>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Failure&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Failure&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -141,8 +141,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$FailureCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) _then) = __$FailureCopyWithImpl;
+abstract mixin class $FailureCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
+  factory $FailureCopyWith(Failure value, $Res Function(Failure) _then) = _$FailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -153,17 +153,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(this._self, this._then);
+class _$FailureCopyWithImpl<$Res>
+    implements $FailureCopyWith<$Res> {
+  _$FailureCopyWithImpl(this._self, this._then);
 
-  final _Failure _self;
-  final $Res Function(_Failure) _then;
+  final Failure _self;
+  final $Res Function(Failure) _then;
 
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(_Failure(
+  return _then(Failure(
 message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -175,8 +175,8 @@ as String,
 /// @nodoc
 
 
-class _Success implements FavoriteState {
-  const _Success({required final  List<ZekerItem> zekerFavorites}): _zekerFavorites = zekerFavorites;
+class Success implements FavoriteState {
+  const Success({required final  List<ZekerItem> zekerFavorites, this.updateStateKey}): _zekerFavorites = zekerFavorites;
   
 
  final  List<ZekerItem> _zekerFavorites;
@@ -186,38 +186,39 @@ class _Success implements FavoriteState {
   return EqualUnmodifiableListView(_zekerFavorites);
 }
 
+ final  String? updateStateKey;
 
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$SuccessCopyWith<_Success> get copyWith => __$SuccessCopyWithImpl<_Success>(this, _$identity);
+$SuccessCopyWith<Success> get copyWith => _$SuccessCopyWithImpl<Success>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Success&&const DeepCollectionEquality().equals(other._zekerFavorites, _zekerFavorites));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success&&const DeepCollectionEquality().equals(other._zekerFavorites, _zekerFavorites)&&(identical(other.updateStateKey, updateStateKey) || other.updateStateKey == updateStateKey));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_zekerFavorites));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_zekerFavorites),updateStateKey);
 
 @override
 String toString() {
-  return 'FavoriteState.success(zekerFavorites: $zekerFavorites)';
+  return 'FavoriteState.success(zekerFavorites: $zekerFavorites, updateStateKey: $updateStateKey)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SuccessCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) _then) = __$SuccessCopyWithImpl;
+abstract mixin class $SuccessCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
+  factory $SuccessCopyWith(Success value, $Res Function(Success) _then) = _$SuccessCopyWithImpl;
 @useResult
 $Res call({
- List<ZekerItem> zekerFavorites
+ List<ZekerItem> zekerFavorites, String? updateStateKey
 });
 
 
@@ -225,19 +226,20 @@ $Res call({
 
 }
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(this._self, this._then);
+class _$SuccessCopyWithImpl<$Res>
+    implements $SuccessCopyWith<$Res> {
+  _$SuccessCopyWithImpl(this._self, this._then);
 
-  final _Success _self;
-  final $Res Function(_Success) _then;
+  final Success _self;
+  final $Res Function(Success) _then;
 
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? zekerFavorites = null,}) {
-  return _then(_Success(
+@pragma('vm:prefer-inline') $Res call({Object? zekerFavorites = null,Object? updateStateKey = freezed,}) {
+  return _then(Success(
 zekerFavorites: null == zekerFavorites ? _self._zekerFavorites : zekerFavorites // ignore: cast_nullable_to_non_nullable
-as List<ZekerItem>,
+as List<ZekerItem>,updateStateKey: freezed == updateStateKey ? _self.updateStateKey : updateStateKey // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -247,8 +249,8 @@ as List<ZekerItem>,
 /// @nodoc
 
 
-class _Empty implements FavoriteState {
-  const _Empty();
+class Empty implements FavoriteState {
+  const Empty();
   
 
 
@@ -258,7 +260,7 @@ class _Empty implements FavoriteState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Empty);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Empty);
 }
 
 
@@ -279,43 +281,43 @@ String toString() {
 /// @nodoc
 
 
-class _Toggle implements FavoriteState {
-  const _Toggle({required this.isFavorite});
+class Toggle implements FavoriteState {
+  const Toggle({required this.newzekerItem});
   
 
- final  bool isFavorite;
+ final  ZekerItem newzekerItem;
 
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ToggleCopyWith<_Toggle> get copyWith => __$ToggleCopyWithImpl<_Toggle>(this, _$identity);
+$ToggleCopyWith<Toggle> get copyWith => _$ToggleCopyWithImpl<Toggle>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Toggle&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Toggle&&(identical(other.newzekerItem, newzekerItem) || other.newzekerItem == newzekerItem));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isFavorite);
+int get hashCode => Object.hash(runtimeType,newzekerItem);
 
 @override
 String toString() {
-  return 'FavoriteState.toggle(isFavorite: $isFavorite)';
+  return 'FavoriteState.toggle(newzekerItem: $newzekerItem)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$ToggleCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
-  factory _$ToggleCopyWith(_Toggle value, $Res Function(_Toggle) _then) = __$ToggleCopyWithImpl;
+abstract mixin class $ToggleCopyWith<$Res> implements $FavoriteStateCopyWith<$Res> {
+  factory $ToggleCopyWith(Toggle value, $Res Function(Toggle) _then) = _$ToggleCopyWithImpl;
 @useResult
 $Res call({
- bool isFavorite
+ ZekerItem newzekerItem
 });
 
 
@@ -323,19 +325,19 @@ $Res call({
 
 }
 /// @nodoc
-class __$ToggleCopyWithImpl<$Res>
-    implements _$ToggleCopyWith<$Res> {
-  __$ToggleCopyWithImpl(this._self, this._then);
+class _$ToggleCopyWithImpl<$Res>
+    implements $ToggleCopyWith<$Res> {
+  _$ToggleCopyWithImpl(this._self, this._then);
 
-  final _Toggle _self;
-  final $Res Function(_Toggle) _then;
+  final Toggle _self;
+  final $Res Function(Toggle) _then;
 
 /// Create a copy of FavoriteState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? isFavorite = null,}) {
-  return _then(_Toggle(
-isFavorite: null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
-as bool,
+@pragma('vm:prefer-inline') $Res call({Object? newzekerItem = null,}) {
+  return _then(Toggle(
+newzekerItem: null == newzekerItem ? _self.newzekerItem : newzekerItem // ignore: cast_nullable_to_non_nullable
+as ZekerItem,
   ));
 }
 

@@ -1,3 +1,5 @@
+import 'package:azkar_app/features/favorites/data/repositories/favorites_repo.dart';
+import 'package:azkar_app/features/favorites/data/sources/favorites_local_storage.dart';
 import 'package:azkar_app/features/home/data/repos/local_storage_repo.dart';
 import 'package:azkar_app/features/home/data/sources/json_data.dart';
 import 'package:azkar_app/features/home/data/sources/local_storage.dart';
@@ -24,6 +26,12 @@ void setupServiceLocator() {
   );
   getIt.registerLazySingleton<ThemeCubit>(
     () => ThemeCubit(getIt.get<ThemeRepo>()),
+  );
+  getIt.registerLazySingleton<FavoritesLocalStorageImpl>(
+    () => FavoritesLocalStorageImpl(),
+  );
+  getIt.registerLazySingleton<FavoritesRepository>(
+    () => FavoritesRepository(getIt.get<FavoritesLocalStorageImpl>()),
   );
   getIt.registerFactory<AzkarCubit>(
     () => AzkarCubit(localStorageRepo: getIt.get<LocalStorageRepo>()),

@@ -45,8 +45,8 @@ $ResultCopyWith(Result<T> _, $Res Function(Result<T>) __);
 /// @nodoc
 
 
-class Success<T> implements Result<T> {
-  const Success(this.data);
+class ResultSuccess<T> implements Result<T> {
+  const ResultSuccess(this.data);
   
 
  final  T data;
@@ -55,13 +55,13 @@ class Success<T> implements Result<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SuccessCopyWith<T, Success<T>> get copyWith => _$SuccessCopyWithImpl<T, Success<T>>(this, _$identity);
+$ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith => _$ResultSuccessCopyWithImpl<T, ResultSuccess<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success<T>&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResultSuccess<T>&&const DeepCollectionEquality().equals(other.data, data));
 }
 
 
@@ -77,8 +77,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $SuccessCopyWith<T,$Res> implements $ResultCopyWith<T, $Res> {
-  factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) _then) = _$SuccessCopyWithImpl;
+abstract mixin class $ResultSuccessCopyWith<T,$Res> implements $ResultCopyWith<T, $Res> {
+  factory $ResultSuccessCopyWith(ResultSuccess<T> value, $Res Function(ResultSuccess<T>) _then) = _$ResultSuccessCopyWithImpl;
 @useResult
 $Res call({
  T data
@@ -89,17 +89,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SuccessCopyWithImpl<T,$Res>
-    implements $SuccessCopyWith<T, $Res> {
-  _$SuccessCopyWithImpl(this._self, this._then);
+class _$ResultSuccessCopyWithImpl<T,$Res>
+    implements $ResultSuccessCopyWith<T, $Res> {
+  _$ResultSuccessCopyWithImpl(this._self, this._then);
 
-  final Success<T> _self;
-  final $Res Function(Success<T>) _then;
+  final ResultSuccess<T> _self;
+  final $Res Function(ResultSuccess<T>) _then;
 
 /// Create a copy of Result
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
-  return _then(Success<T>(
+  return _then(ResultSuccess<T>(
 freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as T,
   ));
@@ -111,8 +111,8 @@ as T,
 /// @nodoc
 
 
-class Failure<T> implements Result<T> {
-  const Failure(this.message);
+class ResultFailure<T> implements Result<T> {
+  const ResultFailure(this.message);
   
 
  final  String message;
@@ -121,13 +121,13 @@ class Failure<T> implements Result<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$FailureCopyWith<T, Failure<T>> get copyWith => _$FailureCopyWithImpl<T, Failure<T>>(this, _$identity);
+$ResultFailureCopyWith<T, ResultFailure<T>> get copyWith => _$ResultFailureCopyWithImpl<T, ResultFailure<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Failure<T>&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResultFailure<T>&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -143,8 +143,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $FailureCopyWith<T,$Res> implements $ResultCopyWith<T, $Res> {
-  factory $FailureCopyWith(Failure<T> value, $Res Function(Failure<T>) _then) = _$FailureCopyWithImpl;
+abstract mixin class $ResultFailureCopyWith<T,$Res> implements $ResultCopyWith<T, $Res> {
+  factory $ResultFailureCopyWith(ResultFailure<T> value, $Res Function(ResultFailure<T>) _then) = _$ResultFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -155,17 +155,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$FailureCopyWithImpl<T,$Res>
-    implements $FailureCopyWith<T, $Res> {
-  _$FailureCopyWithImpl(this._self, this._then);
+class _$ResultFailureCopyWithImpl<T,$Res>
+    implements $ResultFailureCopyWith<T, $Res> {
+  _$ResultFailureCopyWithImpl(this._self, this._then);
 
-  final Failure<T> _self;
-  final $Res Function(Failure<T>) _then;
+  final ResultFailure<T> _self;
+  final $Res Function(ResultFailure<T>) _then;
 
 /// Create a copy of Result
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(Failure<T>(
+  return _then(ResultFailure<T>(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));

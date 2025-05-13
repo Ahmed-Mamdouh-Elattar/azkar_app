@@ -4,6 +4,8 @@ import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/presentation/pages/startup_view.dart';
 import 'package:azkar_app/core/services/objectbox_service.dart';
 import 'package:azkar_app/core/services/service_locator.dart';
+import 'package:azkar_app/features/favorites/data/repositories/favorites_repo.dart';
+import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 
 import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_status_repository.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
@@ -73,6 +75,12 @@ class _AzkarAppState extends State<AzkarApp> with WidgetsBindingObserver {
               )..getOnboardingStatus(),
         ),
         BlocProvider.value(value: getIt.get<ThemeCubit>()),
+        BlocProvider(
+          create:
+              (context) =>
+                  FavoriteCubit(getIt.get<FavoritesRepository>())
+                    ..getZekerFavorites(),
+        ),
       ],
       child: const AzkarAppMaterial(),
     );
