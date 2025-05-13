@@ -1,5 +1,6 @@
 import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
+import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:azkar_app/features/home/presentation/managers/body_cubit/body_cubit.dart';
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
               currentIndex: state.index,
 
               onTap: (index) {
-                BlocProvider.of<BodyCubit>(context).changeBody(index);
+                BlocProvider.of<BodyCubit>(context).changeBody(index: index);
+                getAzkarFavorites(index, context);
               },
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -59,6 +61,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
         );
       },
     );
+  }
+
+  void getAzkarFavorites(int index, BuildContext context) {
+    if (index == 1) {
+      context.read<FavoriteCubit>().getZekerFavorites();
+    }
   }
 
   Color buildUnSelectedColor(bool isDarkMode) {

@@ -1,5 +1,5 @@
-import 'package:azkar_app/core/config/app_text_style.dart';
 import 'package:azkar_app/core/helper/constants.dart';
+import 'package:azkar_app/core/presentation/widgets/custom_center_text.dart';
 
 import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 
@@ -36,14 +36,5 @@ class FavoritesBodyBuilder extends StatelessWidget {
         };
       },
     );
-  }
-}
-
-class CustomCenterText extends StatelessWidget {
-  const CustomCenterText({required this.text, super.key});
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text(text, style: AppTextStyle.styleBold22()));
   }
 }

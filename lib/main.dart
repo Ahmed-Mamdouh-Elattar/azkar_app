@@ -76,10 +76,7 @@ class _AzkarAppState extends State<AzkarApp> with WidgetsBindingObserver {
         ),
         BlocProvider.value(value: getIt.get<ThemeCubit>()),
         BlocProvider(
-          create:
-              (context) =>
-                  FavoriteCubit(getIt.get<FavoritesRepository>())
-                    ..getZekerFavorites(),
+          create: (context) => FavoriteCubit(getIt.get<FavoritesRepository>()),
         ),
       ],
       child: const AzkarAppMaterial(),

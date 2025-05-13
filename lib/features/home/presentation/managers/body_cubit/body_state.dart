@@ -1,20 +1,11 @@
 part of 'body_cubit.dart';
 
-sealed class BodyState {
-  int get index;
-}
+@freezed
+class BodyState with _$BodyState {
+  const factory BodyState.home({required int index}) = Home;
+  const factory BodyState.favorites({required int index}) = Favorites;
+  const factory BodyState.chart({required int index}) = Chart;
 
-final class HomeBody extends BodyState {
   @override
   int get index => 0;
-}
-
-final class FavoriteBody extends BodyState {
-  @override
-  int get index => 1;
-}
-
-final class ChartBody extends BodyState {
-  @override
-  int get index => 2;
 }
