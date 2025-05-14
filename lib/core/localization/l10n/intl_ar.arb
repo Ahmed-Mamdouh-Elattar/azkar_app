@@ -11,5 +11,7 @@
     "appName": "مطمئن",
     "home": "الرئيسية",
     "favorite": "المفضلة",
-    "yourChart": "يومك"
+    "yourChart": "يومك",
+    "onShareSuccess": "تمت المشاركة بنجاح ✅",
+    "onShareError": "حدث خطأ في المشاركة ❌"
 }

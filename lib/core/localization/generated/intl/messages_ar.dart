@@ -26,6 +26,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "onShareError": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ في المشاركة ❌",
+    ),
+    "onShareSuccess": MessageLookupByLibrary.simpleMessage(
+      "تمت المشاركة بنجاح ✅",
+    ),
     "onboarding1Description": MessageLookupByLibrary.simpleMessage(
       "اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة",
     ),

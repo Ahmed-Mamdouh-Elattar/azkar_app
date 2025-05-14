@@ -149,6 +149,26 @@ class S {
   String get yourChart {
     return Intl.message('يومك', name: 'yourChart', desc: '', args: []);
   }
+
+  /// `تمت المشاركة بنجاح ✅`
+  String get onShareSuccess {
+    return Intl.message(
+      'تمت المشاركة بنجاح ✅',
+      name: 'onShareSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدث خطأ في المشاركة ❌`
+  String get onShareError {
+    return Intl.message(
+      'حدث خطأ في المشاركة ❌',
+      name: 'onShareError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

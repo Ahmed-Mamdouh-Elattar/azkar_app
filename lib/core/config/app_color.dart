@@ -7,4 +7,6 @@ class AppColor {
   static const darkModeButtonColor = Color(0xff81C784);
   static const Color darkModeBackgroundColor = Color(0xff0D1B2A);
   static const Color lightModeBackgroundColor = Color(0xffE8F5E9);
+  static const Color snackBarSuccessColor = Color(0xFF4CAF50);
+  static const Color snackBarErrorColor = Color(0xFFE53935);
 }

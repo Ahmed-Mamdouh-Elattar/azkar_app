@@ -23,7 +23,7 @@ class _FavoriteBodyContentState extends State<FavoriteBodyContent> {
             child: CustomZekerFavoriteCard(
               zekerItemModel: widget.zekerFavorites[index],
               animation: animation,
-              onDelete:
+              onDeleteZeker:
                   () => removeZekerFromFavorite(
                     index: index,
                     zekerItem: widget.zekerFavorites[index],
@@ -39,7 +39,7 @@ class _FavoriteBodyContentState extends State<FavoriteBodyContent> {
       (context, animation) => CustomZekerFavoriteCard(
         zekerItemModel: zekerItem,
         animation: animation,
-        onDelete: () {},
+        onDeleteZeker: () {},
       ),
       duration: const Duration(milliseconds: 300),
     );
