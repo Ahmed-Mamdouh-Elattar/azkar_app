@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'dart:typed_data';
 import 'dart:ui';
 
@@ -22,8 +23,8 @@ class ShareZekerCubit extends Cubit<ShareZekerState> {
       await SharePlus.instance.share(
         ShareParams(
           text: '''${zeker.zekr}
-
-المرات ${zeker.repeat}''',
+  
+  المرات ${zeker.repeat}''',
         ),
       );
       emit(ShareZekerState.success(message: S.current.onShareSuccess));
