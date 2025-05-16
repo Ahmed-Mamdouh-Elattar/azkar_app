@@ -1,30 +1,14 @@
 import 'package:azkar_app/core/config/app_color.dart';
-import 'package:azkar_app/core/config/app_text_style.dart';
-import 'package:azkar_app/core/models/azkar_model/zeker_item.dart';
+import 'package:azkar_app/core/presentation/widgets/horizontal_card_divider.dart';
+import 'package:azkar_app/core/presentation/widgets/zeker_text_with_text_style.dart';
+import 'package:azkar_app/core/utils/provide_data/provide_data_cubit.dart';
 import 'package:azkar_app/features/favorites/presentation/widgets/favorite_and_share_button_in_favorite_card.dart';
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomZekerFavoriteCard extends StatefulWidget {
-  const CustomZekerFavoriteCard({
-    required this.zekerItemModel,
-    required this.animation,
-    required this.onDeleteZeker,
-    super.key,
-  });
-  final ZekerItem zekerItemModel;
-
-  final Animation<double> animation;
-  final VoidCallback onDeleteZeker;
-
-  @override
-  State<CustomZekerFavoriteCard> createState() =>
-      _CustomZekerFavoriteCardState();
-}
-
-class _CustomZekerFavoriteCardState extends State<CustomZekerFavoriteCard> {
-  final GlobalKey widgetSCreenShot = GlobalKey();
+class CustomZekerFavoriteCard extends StatelessWidget {
+  const CustomZekerFavoriteCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +16,9 @@ class _CustomZekerFavoriteCardState extends State<CustomZekerFavoriteCard> {
       builder: (context, state) {
         bool isDarkMode = ThemeMode.dark == state;
         return SizeTransition(
-          sizeFactor: widget.animation,
+          sizeFactor: context.read<ProvideDataCubit>().animation!,
           child: RepaintBoundary(
-            key: widgetSCreenShot,
+            key: context.read<ProvideDataCubit>().widgtScreenShot,
             child: Container(
               decoration: BoxDecoration(
                 color: isDarkMode ? Colors.black : Colors.white,
@@ -47,33 +31,13 @@ class _CustomZekerFavoriteCardState extends State<CustomZekerFavoriteCard> {
                 ),
               ),
               padding: const EdgeInsets.all(16),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    textAlign: TextAlign.center,
-                    style: AppTextStyle.styleMedium20().copyWith(
-                      fontFamily: "Lateef",
-                      color:
-                          isDarkMode
-                              ? AppColor.darkModeTextColor
-                              : Colors.black,
-                    ),
-                    widget.zekerItemModel.zekr,
-                  ),
-                  Divider(
-                    color:
-                        isDarkMode
-                            ? AppColor.darkModeButtonColor
-                            : AppColor.lightModeButtonColor,
-                    height: 25,
-                  ),
-                  FavoriteAndShareButtonInFavoriteCard(
-                    widgtScreenShot: widgetSCreenShot,
-                    onDelete: widget.onDeleteZeker,
-                    zekerItemModel: widget.zekerItemModel,
-                  ),
+                  ZekerTextWithTextStyle(),
+                  HorizontalCardDivider(),
+                  FavoriteAndShareButtonInFavoriteCard(),
                 ],
               ),
             ),

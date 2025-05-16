@@ -23,26 +23,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       azkarIcon: Assets.mediaIconsMoonNight,
     ),
     AzkarCardModel(
-      azkarName: "أذكار الوضوء",
-      azkarIcon: Assets.mediaIconsAblution,
-    ),
-    AzkarCardModel(
-      azkarName: "أذكار الصلاة",
-      azkarIcon: Assets.mediaIconsPraying,
-    ),
-    AzkarCardModel(
-      azkarName: "أذكار بعد الصلاة",
-      azkarIcon: Assets.mediaIconsAfterPraying,
-    ),
-    AzkarCardModel(
-      azkarName: "أذكار عند سماع الأذان",
-      azkarIcon: Assets.mediaIconsPraying,
-    ),
-    AzkarCardModel(
-      azkarName: "أذكار المسجد",
-      azkarIcon: Assets.mediaIconsMosque,
-    ),
-    AzkarCardModel(
       azkarName: "أذكار قبل النوم",
       azkarIcon: Assets.mediaIconsBeforeSleeping,
     ),
@@ -50,21 +30,48 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       azkarName: "أذكار الاستيقاظ من النوم",
       azkarIcon: Assets.mediaIconsAfterSleeping,
     ),
-
-    AzkarCardModel(azkarName: "أذكار المنزل", azkarIcon: Assets.mediaIconsHome),
-
-    AzkarCardModel(azkarName: "أذكار الخلاء", azkarIcon: Assets.mediaIconsBath),
     AzkarCardModel(
-      azkarName: "أذكار الطعام والشراب",
+      azkarName: "دعاء الدخول والخروج من المسجد",
+      azkarIcon: Assets.mediaIconsMosque,
+    ),
+    AzkarCardModel(
+      azkarName: "أذكار الآذان",
+      azkarIcon: Assets.mediaIconsPraying,
+    ),
+    AzkarCardModel(
+      azkarName: "أذكار الوضوء",
+      azkarIcon: Assets.mediaIconsAblution,
+    ),
+    AzkarCardModel(
+      azkarName: "الأذكار بعد السلام من الصلاة",
+      azkarIcon: Assets.mediaIconsAfterPraying,
+    ),
+
+    AzkarCardModel(
+      azkarName: "الذكر عند دخول المنزل",
+      azkarIcon: Assets.mediaIconsHome,
+    ),
+    AzkarCardModel(
+      azkarName: "الذكر عند الخروج من المنزل",
+      azkarIcon: Assets.mediaIconsOpenDoor,
+    ),
+    AzkarCardModel(
+      azkarName: "أذكار الدخول والخروج من الخلاء",
+      azkarIcon: Assets.mediaIconsBath,
+    ),
+
+    AzkarCardModel(
+      azkarName: "الذكر قبل الطعام و الشراب",
       azkarIcon: Assets.mediaIconsFoodAndDrink,
     ),
     AzkarCardModel(
-      azkarName: "أذكار السفر",
-      azkarIcon: Assets.mediaIconsTraveling,
+      azkarName: "الذكر بعد الطعام والشراب",
+      azkarIcon: Assets.mediaIconsAfterEating,
     ),
+
     AzkarCardModel(
-      azkarName: "أذكار أخرى",
-      azkarIcon: Assets.mediaIconsTasbeeh,
+      azkarName: "دعاء السفر",
+      azkarIcon: Assets.mediaIconsTraveling,
     ),
   ];
 

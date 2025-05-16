@@ -1,5 +1,5 @@
 import 'package:azkar_app/core/models/azkar_model/zeker_item.dart';
-import 'package:azkar_app/features/favorites/presentation/widgets/custom_zeker_favorite_card.dart';
+import 'package:azkar_app/features/favorites/presentation/widgets/custom_zeker_favorite_card_provider_data.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteBodyContent extends StatefulWidget {
@@ -11,22 +11,30 @@ class FavoriteBodyContent extends StatefulWidget {
 
 class _FavoriteBodyContentState extends State<FavoriteBodyContent> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
+  late List<ZekerItem> zekerFavorites;
+  @override
+  void initState() {
+    zekerFavorites = List.from(widget.zekerFavorites);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedList(
-      initialItemCount: widget.zekerFavorites.length,
+      initialItemCount: zekerFavorites.length,
       key: _listKey,
       physics: const BouncingScrollPhysics(),
       itemBuilder:
           (context, index, animation) => Padding(
             padding: const EdgeInsets.only(bottom: 12),
-            child: CustomZekerFavoriteCard(
-              zekerItemModel: widget.zekerFavorites[index],
+            child: CustomZekerFavoriteCardProviderData(
+              key: ValueKey(zekerFavorites[index].id),
+              zekerItemModel: zekerFavorites[index],
               animation: animation,
               onDeleteZeker:
                   () => removeZekerFromFavorite(
                     index: index,
-                    zekerItem: widget.zekerFavorites[index],
+                    zekerItem: zekerFavorites[index],
                   ),
             ),
           ),
@@ -34,9 +42,10 @@ class _FavoriteBodyContentState extends State<FavoriteBodyContent> {
   }
 
   removeZekerFromFavorite({required int index, required ZekerItem zekerItem}) {
+    zekerFavorites.removeAt(index);
     _listKey.currentState?.removeItem(
       index,
-      (context, animation) => CustomZekerFavoriteCard(
+      (context, animation) => CustomZekerFavoriteCardProviderData(
         zekerItemModel: zekerItem,
         animation: animation,
         onDeleteZeker: () {},

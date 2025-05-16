@@ -1,13 +1,12 @@
 import 'package:azkar_app/core/models/azkar_model/zeker_item.dart';
-
+import 'package:azkar_app/core/utils/provide_data/provide_data_cubit.dart';
 import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:azkar_app/features/favorites/presentation/widgets/favorite_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoriteIconButtonBuilder extends StatefulWidget {
-  const FavoriteIconButtonBuilder({required this.zekerItem, super.key});
-  final ZekerItem zekerItem;
+  const FavoriteIconButtonBuilder({super.key});
 
   @override
   State<FavoriteIconButtonBuilder> createState() =>
@@ -23,6 +22,7 @@ class _FavoriteIconButtonBuilderState extends State<FavoriteIconButtonBuilder> {
 
   @override
   Widget build(BuildContext context) {
+    ZekerItem zeker = context.read<ProvideDataCubit>().zekerItemModel;
     return BlocBuilder<FavoriteCubit, FavoriteState>(
       buildWhen: (previous, current) => previous != current,
       builder: (context, state) {
@@ -36,11 +36,9 @@ class _FavoriteIconButtonBuilderState extends State<FavoriteIconButtonBuilder> {
             },
           ),
           (_) => FavoriteIconButton(
-            isFavorite: widget.zekerItem.isFavorite,
+            isFavorite: zeker.isFavorite,
             onPressed: () {
-              context.read<FavoriteCubit>().toggleFavorite(
-                zekerItem: widget.zekerItem,
-              );
+              context.read<FavoriteCubit>().toggleFavorite(zekerItem: zeker);
             },
           ),
         };

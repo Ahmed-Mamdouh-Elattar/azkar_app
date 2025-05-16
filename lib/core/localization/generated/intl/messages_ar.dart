@@ -30,7 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ في المشاركة ❌",
     ),
     "onShareSuccess": MessageLookupByLibrary.simpleMessage(
-      "تمت المشاركة بنجاح ✅",
+      "جزاك الله خيرًا على نيتك الطيبة ❤️",
     ),
     "onboarding1Description": MessageLookupByLibrary.simpleMessage(
       "اكتشف عالماً من الأذكار اليومية والتذكيرات التي تمنحك راحة البال وهدوء النفس في كل لحظة",

@@ -30,7 +30,9 @@ class AzkarView extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(title: Text(azkarCategory)),
+        appBar: AppBar(
+          title: FittedBox(fit: BoxFit.scaleDown, child: Text(azkarCategory)),
+        ),
         body: const SafeArea(child: AzkarViewBody()),
       ),
     );

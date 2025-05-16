@@ -26,6 +26,10 @@ class Assets {
   /// assets/media/icons/ablution.svg
   static const String mediaIconsAblution = "assets/media/icons/ablution.svg";
 
+  /// Assets for mediaIconsAfterEating
+  /// assets/media/icons/after_eating.svg
+  static const String mediaIconsAfterEating = "assets/media/icons/after_eating.svg";
+
   /// Assets for mediaIconsAfterPraying
   /// assets/media/icons/after_praying.svg
   static const String mediaIconsAfterPraying = "assets/media/icons/after_praying.svg";
@@ -65,6 +69,10 @@ class Assets {
   /// Assets for mediaIconsMosque
   /// assets/media/icons/mosque.svg
   static const String mediaIconsMosque = "assets/media/icons/mosque.svg";
+
+  /// Assets for mediaIconsOpenDoor
+  /// assets/media/icons/open-door.svg
+  static const String mediaIconsOpenDoor = "assets/media/icons/open-door.svg";
 
   /// Assets for mediaIconsPraying
   /// assets/media/icons/praying.svg

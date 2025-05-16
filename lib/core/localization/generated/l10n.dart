@@ -150,10 +150,10 @@ class S {
     return Intl.message('يومك', name: 'yourChart', desc: '', args: []);
   }
 
-  /// `تمت المشاركة بنجاح ✅`
+  /// `جزاك الله خيرًا على نيتك الطيبة ❤️`
   String get onShareSuccess {
     return Intl.message(
-      'تمت المشاركة بنجاح ✅',
+      'جزاك الله خيرًا على نيتك الطيبة ❤️',
       name: 'onShareSuccess',
       desc: '',
       args: [],
