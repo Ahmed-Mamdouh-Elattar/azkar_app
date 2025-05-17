@@ -169,6 +169,31 @@ class S {
       args: [],
     );
   }
+
+  /// `السبحة الالكترونية`
+  String get digitalTasbeeh {
+    return Intl.message(
+      'السبحة الالكترونية',
+      name: 'digitalTasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أدخل الذكر`
+  String get enterZekr {
+    return Intl.message('أدخل الذكر', name: 'enterZekr', desc: '', args: []);
+  }
+
+  /// `ادخل عدد مرات التكرار`
+  String get enterRepeat {
+    return Intl.message(
+      'ادخل عدد مرات التكرار',
+      name: 'enterRepeat',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
