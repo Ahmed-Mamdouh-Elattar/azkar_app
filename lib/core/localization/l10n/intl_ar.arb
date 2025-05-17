@@ -13,5 +13,10 @@
     "favorite": "المفضلة",
     "yourChart": "يومك",
     "onShareSuccess": "جزاك الله خيرًا على نيتك الطيبة ❤️",
-    "onShareError": "حدث خطأ في المشاركة ❌"
+    "onShareError": "حدث خطأ في المشاركة ❌",
+    "digitalTasbeeh":"السبحة الالكترونية",
+    "enterZekr": "أدخل الذكر",
+    "enterRepeat": "ادخل عدد مرات التكرار"
+    
+
 }
