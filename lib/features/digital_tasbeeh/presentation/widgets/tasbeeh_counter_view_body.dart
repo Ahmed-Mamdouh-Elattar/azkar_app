@@ -5,6 +5,6 @@ class TasbeehCounterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Tasbeeh Counter View Body'));
+    return Column(children: [Text()]);
   }
 }
