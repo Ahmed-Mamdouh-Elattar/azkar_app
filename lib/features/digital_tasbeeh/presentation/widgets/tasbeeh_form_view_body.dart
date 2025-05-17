@@ -2,6 +2,7 @@ import 'package:azkar_app/core/helper/constants.dart';
 
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/utils/app_navigation.dart';
+import 'package:azkar_app/features/digital_tasbeeh/data/tasbeeh_model.dart';
 import 'package:azkar_app/features/digital_tasbeeh/presentation/pages/tasbeeh_counter_view.dart';
 import 'package:azkar_app/features/digital_tasbeeh/presentation/widgets/custom_button.dart';
 import 'package:azkar_app/features/digital_tasbeeh/presentation/widgets/custom_text_form_field.dart';
@@ -87,11 +88,14 @@ class _TasbeehFormViewBodyState extends State<TasbeehFormViewBody> {
 
   void _saveData() {
     if (formKey.currentState!.validate()) {
-      final zekr = fieldController1.text;
-      final repeat = int.parse(fieldController2.text);
       AppNavigation.pushWithFadingAnimation(
         context: context,
-        view: TasbeehCounterView(zekr: zekr, repeat: repeat),
+        view: TasbeehCounterView(
+          tasbeehModel: TasbeehModel(
+            zekr: fieldController1.text,
+            zekrRepeat: int.parse(fieldController2.text),
+          ),
+        ),
       );
     } else {
       autovalidateMode = AutovalidateMode.always;
