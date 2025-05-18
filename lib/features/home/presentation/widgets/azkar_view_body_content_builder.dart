@@ -1,6 +1,6 @@
+import 'package:azkar_app/core/presentation/widgets/celebration_widget.dart';
 import 'package:azkar_app/features/home/presentation/managers/azkar_cubit/azkar_cubit.dart';
 import 'package:azkar_app/features/home/presentation/widgets/azkar_view_body_content.dart';
-import 'package:azkar_app/features/home/presentation/widgets/celebration_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

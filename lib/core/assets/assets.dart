@@ -97,5 +97,9 @@ class Assets {
   /// Assets for mediaImagesSplashLogo2
   /// assets/media/images/splash_logo_2.png
   static const String mediaImagesSplashLogo2 = "assets/media/images/splash_logo_2.png";
+
+  /// Assets for mediaSoundsClickEffect
+  /// assets/media/sounds/click-effect.wav
+  static const String mediaSoundsClickEffect = "assets/media/sounds/click-effect.wav";
 }
 

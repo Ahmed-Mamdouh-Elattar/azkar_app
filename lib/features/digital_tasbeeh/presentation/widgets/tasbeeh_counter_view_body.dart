@@ -1,68 +1,37 @@
-import 'package:azkar_app/core/config/app_color.dart';
 import 'package:azkar_app/core/config/app_text_style.dart';
-import 'package:azkar_app/core/helper/is_dark_mode.dart';
-import 'package:azkar_app/features/digital_tasbeeh/data/tasbeeh_model.dart';
+import 'package:azkar_app/core/presentation/widgets/celebration_widget.dart';
+import 'package:azkar_app/features/digital_tasbeeh/presentation/managers/cubit/tasbeeh_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'custom_counter_button.dart';
+import 'vibration_and_reset_icon_button.dart';
 
 class TasbeehCounterViewBody extends StatelessWidget {
-  const TasbeehCounterViewBody({required this.tasbeehModel, super.key});
-  final TasbeehModel tasbeehModel;
+  const TasbeehCounterViewBody({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(tasbeehModel.zekr, style: AppTextStyle.styleBold30()),
-        const SizedBox(height: 16),
-        Expanded(
-          child: Center(
-            child: IconButton(
-              onPressed: () {},
-              icon: AspectRatio(
-                aspectRatio: 1,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    SizedBox(
-                      child: CircularProgressIndicator(
-                        constraints: const BoxConstraints.expand(),
-
-                        valueColor: AlwaysStoppedAnimation(
-                          context.isDarkMode
-                              ? AppColor.darkModeButtonColor
-                              : AppColor.lightModeButtonColor,
-                        ),
-                        backgroundColor:
-                            context.isDarkMode
-                                ? AppColor.darkModeButtonColor.withAlpha(50)
-                                : AppColor.lightModeButtonColor.withAlpha(50),
-
-                        strokeWidth: 10,
-                      ),
-                    ),
-                    Text(
-                      '0',
-                      style: AppTextStyle.styleBold30().copyWith(fontSize: 60),
-                    ), // Made counter text larger
-                  ],
+    return BlocBuilder<TasbeehCubit, TasbeehState>(
+      builder: (context, state) {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: switch (state) {
+            Finished() => const CelebrationWidget(),
+            _ => Column(
+              children: [
+                Text(
+                  context.read<TasbeehCubit>().tasbeehModel.zekr,
+                  style: AppTextStyle.styleBold30(),
                 ),
-              ),
+                const SizedBox(height: 16),
+                const Expanded(child: CustomCounterButton()),
+                const VibrationAndResetIconButton(),
+              ],
             ),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.vibration, size: 36),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.restart_alt, size: 36),
-            ),
-          ],
-        ),
-      ],
+          },
+        );
+      },
     );
   }
 }

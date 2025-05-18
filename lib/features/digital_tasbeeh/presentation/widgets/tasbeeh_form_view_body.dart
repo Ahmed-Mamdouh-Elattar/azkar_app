@@ -66,7 +66,9 @@ class _TasbeehFormViewBodyState extends State<TasbeehFormViewBody> {
                   keyboardType: TextInputType.number,
                   hintText: S.of(context).enterRepeat,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
+                    if (value == null ||
+                        value.isEmpty ||
+                        int.tryParse(value) == 0) {
                       return S.of(context).enterRepeat;
                     }
                     return null;

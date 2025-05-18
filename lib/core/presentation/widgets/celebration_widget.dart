@@ -55,6 +55,7 @@ class CelebrationWidgetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         LottieBuilder.asset(Assets.mediaAnimationsFlowerHeart, repeat: false),
         const SizedBox(height: 10),
