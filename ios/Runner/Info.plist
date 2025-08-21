@@ -47,5 +47,20 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		    <!-- السماح للتطبيق يشتغل في الخلفية (مهم للتنبيهات المجدولة) -->
+        <key>UIBackgroundModes</key>
+        <array>
+           <string>fetch</string>
+           <string>remote-notification</string>
+       </array>
+
+       <!-- وصف ليه التطبيق محتاج إشعارات -->
+       <key>NSUserTrackingUsageDescription</key>
+       <string>App requires permission to send you notifications for Azkar reminders.</string>
+
+    <!-- السماح باستخدام الـ Notifications -->
+       <key>UIUserNotificationSettings</key>
+       <true/>
+
 	</dict>
 </plist>
