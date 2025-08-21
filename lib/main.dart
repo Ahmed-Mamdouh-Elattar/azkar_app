@@ -1,4 +1,5 @@
 import 'package:azkar_app/core/config/app_theme.dart';
+import 'package:azkar_app/core/helper/init_notifications.dart';
 import 'package:azkar_app/core/helper/save_azkar_list_and_close_cubit.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/presentation/pages/startup_view.dart';
@@ -6,6 +7,7 @@ import 'package:azkar_app/core/services/objectbox_service.dart';
 import 'package:azkar_app/core/services/service_locator.dart';
 import 'package:azkar_app/features/favorites/data/repositories/favorites_repo.dart';
 import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
+import 'package:azkar_app/features/notification/presentation/managers/cubit/notification_cubit.dart';
 
 import 'package:azkar_app/features/onboarding%20screens/data/repo/onboarding_status_repository.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
@@ -24,6 +26,8 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupServiceLocator();
+  await initNotifications();
+
   await ObjectBoxService().init();
   await getIt.get<ThemeCubit>().getTheme();
   await saveAzkarListAndCloseCubit();
@@ -75,6 +79,9 @@ class _AzkarAppState extends State<AzkarApp> with WidgetsBindingObserver {
               )..getOnboardingStatus(),
         ),
         BlocProvider.value(value: getIt.get<ThemeCubit>()),
+        BlocProvider(
+          create: (context) => NotificationCubit()..checkPermission(),
+        ),
         BlocProvider(
           create: (context) => FavoriteCubit(getIt.get<FavoritesRepository>()),
         ),
