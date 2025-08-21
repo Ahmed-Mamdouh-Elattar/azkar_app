@@ -5,6 +5,7 @@ import 'package:azkar_app/core/helper/is_dark_mode.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/utils/app_navigation.dart';
 import 'package:azkar_app/features/home/presentation/pages/home_view.dart';
+import 'package:azkar_app/features/notification/presentation/managers/cubit/notification_cubit.dart';
 import 'package:azkar_app/features/onboarding%20screens/data/models/onboarding_model.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_last_view_cubit/onboarding_last_view_cubit.dart';
 import 'package:azkar_app/features/onboarding%20screens/presentation/managers/onboarding_status_cubit/onboarding_status_cubit.dart';
@@ -128,12 +129,15 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       AppColor.lightModeButtonColor,
                     ),
           ),
-          onPressed: () {
+          onPressed: () async {
             if (state) {
               BlocProvider.of<OnboardingStatusCubit>(
                 context,
               ).saveOnboardingStatus();
               navigateToHomeView(context);
+              await BlocProvider.of<NotificationCubit>(
+                context,
+              ).requestNotificationPermission();
             } else {
               navigateToNextOnboardingView();
             }

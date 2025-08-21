@@ -1,10 +1,12 @@
 import 'package:azkar_app/core/config/app_color.dart';
+import 'package:azkar_app/core/helper/init_notifications.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/features/favorites/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:azkar_app/features/home/presentation/managers/body_cubit/body_cubit.dart';
 import 'package:azkar_app/features/theme/presentation/cubit/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -20,9 +22,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
             return StylishBottomBar(
               currentIndex: state.index,
 
-              onTap: (index) {
+              onTap: (index) async {
                 BlocProvider.of<BodyCubit>(context).changeBody(index: index);
                 getAzkarFavorites(index, context);
+                await showNotification();
               },
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -82,4 +85,24 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Text buildBoldText(String text) {
     return Text(text, style: const TextStyle(fontWeight: FontWeight.bold));
   }
+}
+
+Future<void> showNotification() async {
+  const androidDetails = AndroidNotificationDetails(
+    'default_channel',
+    'Default',
+    importance: Importance.high,
+    priority: Priority.high,
+  );
+
+  const iosDetails = DarwinNotificationDetails();
+
+  const details = NotificationDetails(android: androidDetails, iOS: iosDetails);
+
+  await flutterLocalNotificationsPlugin.show(
+    0,
+    'مرحبا 👋',
+    'أول إشعار محلي في تطبيقك',
+    details,
+  );
 }

@@ -171,15 +171,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
     AzkarModel: obx_int.EntityDefinition<AzkarModel>(
       model: _entities[0],
       toOneRelations: (AzkarModel object) => [],
-      toManyRelations:
-          (AzkarModel object) => {
-            obx_int.RelInfo<ZekerItem>.toOneBacklink(
-                  5,
-                  object.id,
-                  (ZekerItem srcObject) => srcObject.azkarModel,
-                ):
-                object.zekerItems,
-          },
+      toManyRelations: (AzkarModel object) => {
+        obx_int.RelInfo<ZekerItem>.toOneBacklink(
+          5,
+          object.id,
+          (ZekerItem srcObject) => srcObject.azkarModel,
+        ): object.zekerItems,
+      },
       getId: (AzkarModel object) => object.id,
       setId: (AzkarModel object, int id) {
         object.id = id;

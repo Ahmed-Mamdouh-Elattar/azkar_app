@@ -32,7 +32,7 @@ class CustomSwitchButton extends StatelessWidget {
         bool isDarkMode = ThemeMode.dark == state;
         return Switch(
           value: isDarkMode,
-          activeColor: AppColor.darkModeButtonColor,
+          activeThumbColor: AppColor.darkModeButtonColor,
           trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
           inactiveTrackColor: Colors.grey,
           inactiveThumbColor: Colors.white,
