@@ -3,3 +3,4 @@ const kIsDarkMode = 'isDarkMode';
 const kJsonDataPath = 'assets/data/azkar.json';
 const String kIsDataFetched = "isDataFetched";
 const String kOnboardingStatus = 'onboardingStatus';
+const String kNotification = "notification";

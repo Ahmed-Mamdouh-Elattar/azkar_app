@@ -70,6 +70,10 @@ class Assets {
   /// assets/media/icons/mosque.svg
   static const String mediaIconsMosque = "assets/media/icons/mosque.svg";
 
+  /// Assets for mediaIconsNotification
+  /// assets/media/icons/notification.svg
+  static const String mediaIconsNotification = "assets/media/icons/notification.svg";
+
   /// Assets for mediaIconsOpenDoor
   /// assets/media/icons/open-door.svg
   static const String mediaIconsOpenDoor = "assets/media/icons/open-door.svg";
