@@ -44,14 +44,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   borderColor: buildBackgroundAndBorderColor(isDarkMode),
                   title: buildBoldText(S.of(context).favorite),
                 ),
-                BottomBarItem(
-                  unSelectedColor: buildUnSelectedColor(isDarkMode),
-                  icon: const Icon(Icons.bar_chart),
-                  backgroundColor: buildBackgroundAndBorderColor(isDarkMode),
-                  borderColor: buildBackgroundAndBorderColor(isDarkMode),
-
-                  title: buildBoldText(S.of(context).yourChart),
-                ),
               ],
               option: BubbleBarOptions(
                 barStyle: BubbleBarStyle.vertical,
