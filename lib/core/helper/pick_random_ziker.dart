@@ -8,7 +8,7 @@ final List<String> azkar = [
   "لا حول ولا قوة إلا بالله",
 ];
 
-String getRandomZikr() {
+String pickRandomZiker() {
   final random = Random();
   return azkar[random.nextInt(azkar.length)];
 }

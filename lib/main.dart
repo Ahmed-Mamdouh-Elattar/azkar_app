@@ -1,5 +1,6 @@
 import 'package:azkar_app/core/config/app_theme.dart';
 import 'package:azkar_app/core/helper/init_notifications.dart';
+import 'package:azkar_app/core/helper/intialize_work_manager.dart';
 import 'package:azkar_app/core/helper/save_azkar_list_and_close_cubit.dart';
 import 'package:azkar_app/core/localization/generated/l10n.dart';
 import 'package:azkar_app/core/presentation/pages/startup_view.dart';
@@ -27,7 +28,7 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupServiceLocator();
   await initNotifications();
-
+  await intializeWorkManager();
   await ObjectBoxService().init();
   await getIt.get<ThemeCubit>().getTheme();
   await saveAzkarListAndCloseCubit();
