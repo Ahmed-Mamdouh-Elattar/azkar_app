@@ -26,7 +26,7 @@ To get a local copy up and running, follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username/azkar_app.git
+   git clone https://github.com/Ahmed-Mamdouh-Elattar/azkar_app.git
    ```
 2. Install packages
    ```sh
