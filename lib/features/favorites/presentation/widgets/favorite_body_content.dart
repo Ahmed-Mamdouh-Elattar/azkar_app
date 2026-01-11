@@ -41,7 +41,10 @@ class _FavoriteBodyContentState extends State<FavoriteBodyContent> {
     );
   }
 
-  removeZekerFromFavorite({required int index, required ZekerItem zekerItem}) {
+  void removeZekerFromFavorite({
+    required int index,
+    required ZekerItem zekerItem,
+  }) {
     zekerFavorites.removeAt(index);
     _listKey.currentState?.removeItem(
       index,

@@ -36,4 +36,5 @@ void setupServiceLocator() {
   getIt.registerFactory<AzkarCubit>(
     () => AzkarCubit(localStorageRepo: getIt.get<LocalStorageRepo>()),
   );
+  
 }
